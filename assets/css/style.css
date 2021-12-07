@@ -1,0 +1,33 @@
+/* Global Style */
+
+body {
+    font-family: 'Fuzzy Bubbles', cursive;
+    color: #34568B;
+    text-align: center;
+}
+
+/* Heading Style */
+
+.heading {
+    text-align: center;
+    font-size: 3em;
+    color: #4C8577;
+}
+
+.logo {
+    width: 150px; 
+}
+
+/* Game layout */
+
+.game-area {
+    background-color: #E6E2EC;
+    box-sizing: border-box;
+    width: 85%;
+    height: 65vh;
+    max-height: 600px;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 1%;
+}
