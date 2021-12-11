@@ -12,7 +12,8 @@
         integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fuzzy+Bubbles&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fuzzy+Bubbles&family=Gloria+Hallelujah&display=swap"
+        rel="stylesheet">
     <link rel='shortcut icon' type='image/x-icon' href='favicon.ico' />
     <link rel="stylesheet" href="assets/css/style.css">
     <title>Study Break Room!</title>
@@ -27,12 +28,19 @@
             Studying is hard. Let us
             take a break and play: <br>
         </h2>
-        <h1 class="heading">Rock, Paper, Scissors, Lizard, Spock!"</h1>
-        
+        <h1 class="heading">Rock, Paper, Scissors, Lizard, Spock!</h1>
 
-        <section class="game-area">
-            <div>
-                <p>What do you choose?</p>
+
+        <section>
+            <div class="game-area">
+                <p class="intro">What do you choose?</p>
+                <div class="sign-choice">
+                    <button data-type="Rock" class="choice-btn rock-btn"><i class="fas fa-hand-rock"></i></button>
+                    <button data-type="Paper" class="choice-btn paper-btn"><i class="fas fa-hand-paper"></i></button>
+                    <button data-type="Scissors" class="choice-btn scissors-btn"><i class="fas fa-hand-scissors"></i></button>
+                    <button data-type="Lizard" class="choice-btn lizard-btn"><i class="fas fa-hand-lizard"></i></button>
+                    <button data-type="Spock" class="choice-btn spock-btn"><i class="fas fa-hand-spock"></i></button>
+                </div>
             </div>
             <div id="messages"></div>
             <div class="player">

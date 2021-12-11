@@ -14,8 +14,13 @@ body {
     color: #4C8577;
 }
 
+.intro {
+    text-align: center;
+    font-size: 1.7em;
+}
+
 .logo {
-    width: 150px; 
+    width: 100px; 
 }
 
 /* Game layout */
@@ -24,10 +29,95 @@ body {
     background-color: #E6E2EC;
     box-sizing: border-box;
     width: 85%;
-    height: 65vh;
-    max-height: 600px;
+    height: 60vh;
+    max-height: 450px;
     max-width: 900px;
     margin-left: auto;
     margin-right: auto;
     padding: 1%;
+}
+
+/* Buttons */
+
+.choice-btn {
+    padding-top: 12px;
+    border-radius: 50%;
+    background-color: white;
+    border: 5px solid;
+    width: 100px;
+    height: 100px;
+    font-size: 3.6rem;
+    margin: 0 25px;
+    transition: 0.5s;
+}
+
+.btn:focus {
+    outline: none;
+}
+
+.choice-btn::after{
+    content: attr(data-type);
+    width: 220px;
+    height: 60px;
+    font-size: 1.2rem;
+    letter-spacing: 1.2px;
+    color: #394d83;
+    position: relative;
+    font-family: 'Gloria Hallelujah', cursive;
+    text-transform: uppercase;
+}
+
+.rock-btn {
+    border-color: red;
+    color: rgba(255, 0, 0, 0.600);
+}
+
+.rock-btn:active,
+.rock-btn:hover {
+    background-color: rgba(255, 0, 0, 0.600);
+    color: white;
+}
+
+.paper-btn {
+    border-color: orange;
+    color: rgba(255, 166, 0, 0.600);
+}
+
+.paper-btn:active,
+.paper-btn:hover {
+    background-color: rgba(255, 166, 0, 0.600);
+    color: white;
+}
+
+.scissors-btn {
+    border-color: purple;
+    color: rgba(128, 0, 128, 0.600);
+}
+
+.scissors-btn:active,
+.scissors-btn:hover {
+    background-color: rgba(128, 0, 128, 0.600);
+    color: white;
+}
+
+.lizard-btn {
+    border-color: green;
+    color: rgba(0, 128, 0, 0.600);
+}
+
+.lizard-btn:active,
+.lizard-btn:hover {
+    background-color: rgba(0, 128, 0, 0.600);
+    color: white;
+}
+
+.spock-btn {
+    border-color: blue;
+    color: rgba(0, 0, 255, 0.600);
+}
+
+.spock-btn:active,
+.spock-btn:hover {
+    background-color: rgba(0, 0, 255, 0.600);
+    color: white;
 }
