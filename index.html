@@ -32,28 +32,30 @@
 
 
         <div class="game-area">
-            <p class="intro">What do you choose?</p>
+            <p>What do you choose?</p>
             <div class="sign-choice">
-                <button data-type="Rock" class="choice-btn rock-btn"><i class="fas fa-hand-rock"></i></button>
-                <button data-type="Paper" class="choice-btn paper-btn"><i class="fas fa-hand-paper"></i></button>
-                <button data-type="Scissors" class="choice-btn scissors-btn"><i
-                        class="fas fa-hand-scissors"></i></button>
-                <button data-type="Lizard" class="choice-btn lizard-btn"><i class="fas fa-hand-lizard"></i></button>
-                <button data-type="Spock" class="choice-btn spock-btn"><i class="fas fa-hand-spock"></i></button>
+                <button data-type="rock" class="choice-btn rock-btn"><i class="fas fa-hand-rock"></i><p>rock</p></button>
+                <button data-type="paper" class="choice-btn paper-btn"><i class="fas fa-hand-paper"></i><p>paper</p></button>
+                <button data-type="scissors" class="choice-btn scissors-btn"><i
+                        class="fas fa-hand-scissors"></i><p>scissors</p></button>
+                <button data-type="lizard" class="choice-btn lizard-btn"><i class="fas fa-hand-lizard"></i><p>lizard</p></button>
+                <button data-type="spock" class="choice-btn spock-btn"><i class="fas fa-hand-spock"></i><p>spock</p></button>
             </div>
             <button data-type="select" class="select-btn">Choose Sign</button>
             <div>Computer selection</div>
             <div>Outcome message</div>
         </div>
 
-        <div id="messages">
-            <div class="player">
-                <h2 class="scores">Your score: <span id="player-score">0</span></h2>
+        <section class="scoreboard-area">
+            <div id="messages">
+                <div class="player">
+                    <h2 class="scores">Your score: <span id="player-score">0</span></h2>
+                </div>
+                <div class="computer">
+                    <h2 class="scores">Computer score: <span id="computer-score">0</span></h2>
+                </div>
             </div>
-            <div class="computer">
-                <h2 class="scores">Computer score: <span id="computer-score">0</span></h2>
-            </div>
-        </div>
+        </section>
 
         <script src="./assets/js/script.js"></script>
 
