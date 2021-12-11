@@ -121,3 +121,59 @@ body {
     background-color: rgba(0, 0, 255, 0.600);
     color: white;
 }
+
+.select-btn {
+    background-color: #4C8577;
+    border: 3px solid;
+    border-radius: 20px;
+    color: white;
+    width: 200px;
+    height: 60px;
+    font-size: 1.6rem;
+    margin: 50px 0 25px;
+}
+
+.select-btn:focus {
+    outline: none;
+}
+
+.select-btn:active,
+.select-btn:hover {
+    background-color: white;
+    color: #4C8577;
+    font-weight: 900;
+}
+
+/* Media queries */
+
+@media (max-width: 480px) {
+    .logo {
+        max-width: 50px;
+        height: auto;
+    }
+    
+    .heading {
+        font-size: 1.5rem;
+    }
+
+    .intro {
+        font-size: .9rem;
+    }
+    
+    .sign-choice {
+        width: 100%;
+    }
+
+    .choice-btn {
+        margin: 10px 20px;
+        padding: 7px;
+        border: 3px solid;
+        width: 50px;
+        height: 50px;
+        font-size: 1.5rem;
+    }
+
+    .choice-btn::after {
+        font-size: 0.9rem;
+        left: -0.5rem;
+    }
