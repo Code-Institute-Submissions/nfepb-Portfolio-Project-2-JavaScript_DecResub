@@ -33,8 +33,10 @@ document.addEventListener("DOMContentLoaded", function() {
     const selectButton = document.querySelector(".select-btn")
     selectButton.addEventListener("click", function() {
         const computerChoice = getComputerSignChoice();
+        document.getElementById("computer-sign").innerHTML = computerChoice;
         const outcomeMessage = getOutcomeMessage(playerSignChoice, computerChoice);
         console.log(outcomeMessage);
+        document.getElementById("outcome-message").innerHTML = outcomeMessage;
         incrementPlayerScore();
         incrementComputerScore();
     });
@@ -46,6 +48,10 @@ function getComputerSignChoice () {
     const randomIndex = (Math.floor(Math.random() * 5));
     return signChoices[randomIndex];
 }
+
+/** Display computer choice */
+
+document.getElementById("computer-sign").innerHTML = computerChoice;
 
 /** function comparing player choice and computer choice */
 
