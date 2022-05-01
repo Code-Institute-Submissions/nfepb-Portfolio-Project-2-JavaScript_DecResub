@@ -66,6 +66,10 @@ function compareSignChoice(userSignChoice, getComputerSignChoice) {
         
 }
 
+/** Outcome of the comparison logic */ 
+
+const gameWinner = document.querySelector("#gameWinner")
+
 
 function incrementPlayerScore () {
     let playerScore = parseInt(document.getQuery("player-score").innerText);
