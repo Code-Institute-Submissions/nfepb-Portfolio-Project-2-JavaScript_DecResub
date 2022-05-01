@@ -28,18 +28,17 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     });
 
+    /** Launch the game on "sign choice" button click */ 
+
     const selectButton = document.querySelector(".select-btn")
     selectButton.addEventListener("click", function() {
         const computerChoice = getComputerSignChoice();
         const outcomeMessage = getOutcomeMessage(playerSignChoice, computerChoice);
         console.log(outcomeMessage);
-        displayMessageBattleOutcome(outcomeMessage);
         incrementPlayerScore();
         incrementComputerScore();
     });
 });
-
-/** Launch the game on "sign choice" button click */ 
 
 /** Function defining randomly the computer sign */
 
@@ -48,11 +47,11 @@ function getComputerSignChoice () {
     return signChoices[randomIndex];
 }
 
-/** function comparing player choice and computer choice, returns "user" when the user wins */
+/** function comparing player choice and computer choice */
 
 function getOutcomeMessage(userSignChoice, computerSignChoice) {
     if (userSignChoice === computerSignChoice) {
-        return "It's a draw! Go again!"
+        outcomeMessage = "It's a draw! Go again!"
     }
 
     switch(userSignChoice) {
@@ -111,9 +110,10 @@ function getOutcomeMessage(userSignChoice, computerSignChoice) {
                 case LIZARD:
                     return "Lizard poisons Spock... You lose this round!"; 
             }
-
-    }   
-}
+        }
+    }  
+    
+/** Display outcome message */
 
 /** Outcome of the comparison logic */ 
 

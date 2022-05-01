@@ -8,6 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- font awesome and google links -->
+
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
         integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -20,8 +21,6 @@
 
 </head>
 
-<body>
-
     <body>
         <h2 class="intro">
             <img class="logo" src="assets/images/study-break.png" alt="Study Break Room logo"><br>
@@ -30,6 +29,7 @@
         </h2>
         <h1 class="heading">Rock, Paper, Scissors, Lizard, Spock!</h1>
 
+<!-- Game Area with player selector div -->
 
         <div class="game-area">
             <p>What do you choose?</p>
@@ -51,9 +51,11 @@
                 </button>
             </div>
             <button class="select-btn">Choose Sign</button>
-            <div>Computer selection</div>
-            <div>Outcome message</div>
+            <div id="computer-sign">Computer selection</div>
+            <div id="outcome-message">Outcome message</div>
         </div>
+
+        <!-- Scoreboard area -->
 
         <section class="scoreboard-area">
             <div id="messages">
@@ -69,6 +71,10 @@
         <script src="./assets/js/script.js"></script>
 
     </body>
+
+    <!-- Footer with rules -->
+
+
     <footer>
         <h2>How to win:</h2>
         <p><i><span class="scissors-ftr">Scissors</span> cuts
