@@ -28,12 +28,16 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     });
 
-    /** Launch the game on "sign choice" button click */ 
+    /** Launch the game on "sign choice" button click and calls on function to calculate outcome */ 
 
     const selectButton = document.querySelector(".select-btn")
     selectButton.addEventListener("click", function() {
         const computerChoice = getComputerSignChoice();
         document.getElementById("computer-sign").innerHTML = computerChoice;
+
+        // ??? Image choice to fix: 
+        // computerChoiceIcon.className = "fas fa-hand-${computerChoice} ${computerChoice}-btn"; 
+
         const outcomeMessage = getOutcomeMessage(playerSignChoice, computerChoice);
         console.log(outcomeMessage);
         document.getElementById("outcome-message").innerHTML = outcomeMessage;
@@ -51,7 +55,8 @@ function getComputerSignChoice () {
 
 /** Display computer choice */
 
-document.getElementById("computer-sign").innerHTML = computerChoice;
+let computerChoiceIcon = document.getElementById("computer-sign");
+
 
 /** function comparing player choice and computer choice */
 
