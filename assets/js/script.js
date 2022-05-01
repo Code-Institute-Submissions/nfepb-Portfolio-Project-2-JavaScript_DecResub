@@ -27,7 +27,7 @@ document.addEventListener("DOMContentLoaded", function() {
 /** Function defining randomly the computer sign */
 
 function getComputerSignChoice () {
-    const randomIndex = Math.floor(Math.random() * 5);
+    const randomIndex = (Math.floor(Math.random() * 5 + 1));
     return signChoices[randomIndex];
 }
 
