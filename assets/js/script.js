@@ -1,69 +1,118 @@
 /** Constants */
 
 const signChoices = [
-    "Rock",
-    "Paper",
-    "Sissors",
-    "Lizard",
-    "Spock"
+    "rock",
+    "paper",
+    "scissors",
+    "lizard",
+    "spock"
 ]
+
+const ROCK = signChoices[0];
+const PAPER = signChoices[1];
+const SCISSORS = signChoices[2];
+const LIZARD = signChoices[3];
+const SPOCK = signChoices[4];
+
+let playerSignChoice = "";
 
 // Wait for the DOM to finish loading before running the game
 // Get the button elements and add event listeners to them
 
 document.addEventListener("DOMContentLoaded", function() {
-    let buttons = document.getElementsByTagName("button");
+    const choiceButtons = document.querySelectorAll(".choice-btn");
 
-    const onSelectButtonClick = document.querySelector(".select-btn")
-    selectButton.addEventListener("click", function(){
-        getComputerSignChoice();
-        compareSignChoice();
-        displayMessageBattleOutcome();
+    choiceButtons.forEach(function(choiceButton) {
+        choiceButton.addEventListener("click", function(event) {
+            playerSignChoice = event.currentTarget.id;
+        });
+    });
+
+    const selectButton = document.querySelector(".select-btn")
+    selectButton.addEventListener("click", function() {
+        const computerChoice = getComputerSignChoice();
+        const outcomeMessage = getOutcomeMessage(playerSignChoice, computerChoice);
+        console.log(outcomeMessage);
+        displayMessageBattleOutcome(outcomeMessage);
         incrementPlayerScore();
         incrementComputerScore();
     });
 });
 
+/** Launch the game on "sign choice" button click */ 
+
 /** Function defining randomly the computer sign */
 
 function getComputerSignChoice () {
-    const randomIndex = (Math.floor(Math.random() * 5 + 1));
+    const randomIndex = (Math.floor(Math.random() * 5));
     return signChoices[randomIndex];
 }
 
 /** function comparing player choice and computer choice, returns "user" when the user wins */
 
-function compareSignChoice(userSignChoice, getComputerSignChoice) {
-    let winner = "";
-    if (userSignChoice === getComputerSignChoice) {
-        winner = "draw";
+function getOutcomeMessage(userSignChoice, computerSignChoice) {
+    if (userSignChoice === computerSignChoice) {
         return "It's a draw! Go again!"
-    } else if (userSignChoice === "Rock" && getComputerSignChoice === "Scissors") {
-        winner = "Player";
-        return "Rock crushes scissors... ${winner} is the winner this round!";
-    } else if (userSignChoice === "Rock" && getComputerSignChoice === "Lizard") {
-        winner = "Player"
-        return "Rock crushes lizard... ${winner} is the winner this round!";
-    } else if (userSignChoice === "Rock" && getComputerSignChoice === "Paper") {
-        winner = "Computer"
-        return "Paper covers rock... You lose this round!";
-    } else if (userSignChoice === "Rock" && getComputerSignChoice === "Spock") {
-        winner = "Computer"
-        return "Spock vaporizes rock... You lose this round!";
-    } else if (userSignChoice === "Paper" && getComputerSignChoice === "Rock") {
-        winner = "Player";
-        return "Paper covers rock... ${winner} is the winner this round!";
-    } else if (userSignChoice === "Paper" && getComputerSignChoice === "Spock") {
-        winner = "Player";
-        return "Paper disproves Spock... ${winner} is the winner this round!";
-    } else if (userSignChoice === "Paper" && getComputerSignChoice === "Scissors") {
-        winner = "Computer";
-        return "Scissors cuts paper... ${winner} is the winner this round!";
-    } else if (userSignChoice === "Paper" && getComputerSignChoice === "Lizard") {
-        winner = "Computer";
-        return "Lizard eats paper... ${winner} is the winner this round!";
     }
-        
+
+    switch(userSignChoice) {
+        case ROCK:
+            switch(computerSignChoice) {
+                case SCISSORS:
+                    return "Rock crushes scissors... You win this round!";
+                case LIZARD:
+                    return "Rock crushes lizard... You win this round!";
+                case PAPER:
+                    return "Paper covers rock... You lose this round!";
+                case SPOCK:
+                    return "Spock vaporizes rock... You lose this round!";
+            }
+        case PAPER:
+            switch(computerSignChoice) {
+                case ROCK:
+                    return "Paper covers rock... You win this round!";
+                case SPOCK:
+                    return "Paper disproves Spock... You win this round!";
+                case SCISSORS:
+                    return "Scissors cut paper... You lose this round!";
+                case LIZARD:
+                    return "Lizard eats paper... You lose this round";
+            }
+        case SCISSORS:
+            switch(computerSignChoice) {
+                case PAPER:
+                    return "Scissors cut paper... You win this round!";
+                case LIZARD:
+                    return "Scissors decapitates lizard... You win this round!";
+                case ROCK:
+                    return "Rock crushes scissors... You lose this round!";
+                case SPOCK:
+                    return "Spock smashes scissors... You lose this round!";
+            }
+        case LIZARD:
+            switch(computerSignChoice) {
+                case ROCK:
+                    return "Rock crushes lizard... You lose this round!";
+                case PAPER:
+                    return "Lizard eats paper... You win this round!";
+                case SCISSORS:
+                    return "Scissors decapitates lizard... You lose this round!";
+                case SPOCK:
+                    return "Lizard poisons Spock... You win this round!";
+            }
+        case SPOCK:
+            switch(computerSignChoice) {
+                case ROCK:
+                    return "Spock vaporizes rock... You win this round!";
+                case PAPER:
+                    return "Paper disproves Spock... You lose this round!";
+                case SCISSORS:
+                    return "Spock smashes scissors... You win this round!";
+                case LIZARD:
+                    return "Lizard poisons Spock... You lose this round!"; 
+            }
+
+    }   
 }
 
 /** Outcome of the comparison logic */ 
