@@ -16,6 +16,9 @@ const SPOCK = signChoices[4];
 
 let playerSignChoice = "";
 
+let playerScore = 0;
+let computerScore = 0;
+
 // Wait for the DOM to finish loading before running the game
 // Get the button elements and add event listeners to them
 
@@ -56,7 +59,7 @@ function getComputerSignChoice () {
 /** Display computer choice */
 
 let computerChoiceIcon = document.getElementById("computer-sign");
-
+document.getElementById("computer-sign").classList.add('fas fa-hand-');
 
 /** function comparing player choice and computer choice */
 
@@ -68,7 +71,7 @@ function getOutcomeMessage(userSignChoice, computerSignChoice) {
     switch(userSignChoice) {
         case ROCK:
             switch(computerSignChoice) {
-                case SCISSORS:
+                case SCISSORS:   
                     return "Rock crushes scissors... You win this round!";
                 case LIZARD:
                     return "Rock crushes lizard... You win this round!";
@@ -124,7 +127,6 @@ function getOutcomeMessage(userSignChoice, computerSignChoice) {
         }
     }  
     
-/** Display outcome message */
 
 /** Outcome of the comparison logic */ 
 
