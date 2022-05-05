@@ -59,7 +59,7 @@ function getComputerSignChoice () {
 /** Display computer choice */
 
 let computerChoiceIcon = document.getElementById("computer-sign");
-document.getElementById("computer-sign").classList.add('fas fa-hand-');
+document.getElementById("computer-sign").classList= "fas fa-hand-${computerChoice}";
 
 /** function comparing player choice and computer choice */
 
@@ -72,56 +72,76 @@ function getOutcomeMessage(userSignChoice, computerSignChoice) {
         case ROCK:
             switch(computerSignChoice) {
                 case SCISSORS:   
+                    playerScore++;
                     return "Rock crushes scissors... You win this round!";
                 case LIZARD:
+                    playerScore++;
                     return "Rock crushes lizard... You win this round!";
                 case PAPER:
+                    computerScore++;
                     return "Paper covers rock... You lose this round!";
                 case SPOCK:
+                    computerScore++;
                     return "Spock vaporizes rock... You lose this round!";
             }
         case PAPER:
             switch(computerSignChoice) {
                 case ROCK:
+                    playerScore++;
                     return "Paper covers rock... You win this round!";
                 case SPOCK:
+                    playerScore++;
                     return "Paper disproves Spock... You win this round!";
                 case SCISSORS:
+                    computerScore++;
                     return "Scissors cut paper... You lose this round!";
                 case LIZARD:
+                    computerScore++;
                     return "Lizard eats paper... You lose this round";
             }
         case SCISSORS:
             switch(computerSignChoice) {
                 case PAPER:
+                    playerScore++;
                     return "Scissors cut paper... You win this round!";
                 case LIZARD:
+                    playerScore++;
                     return "Scissors decapitates lizard... You win this round!";
                 case ROCK:
+                    computerScore++;
                     return "Rock crushes scissors... You lose this round!";
                 case SPOCK:
+                    computerScore++;
                     return "Spock smashes scissors... You lose this round!";
             }
         case LIZARD:
             switch(computerSignChoice) {
                 case ROCK:
+                    computerScore++;
                     return "Rock crushes lizard... You lose this round!";
                 case PAPER:
+                    playerScore++;
                     return "Lizard eats paper... You win this round!";
                 case SCISSORS:
+                    computerScore++;
                     return "Scissors decapitates lizard... You lose this round!";
                 case SPOCK:
+                    playerScore++;
                     return "Lizard poisons Spock... You win this round!";
             }
         case SPOCK:
             switch(computerSignChoice) {
                 case ROCK:
+                    playerScore++;
                     return "Spock vaporizes rock... You win this round!";
                 case PAPER:
+                    computerScore++;
                     return "Paper disproves Spock... You lose this round!";
                 case SCISSORS:
+                    playerScore++;
                     return "Spock smashes scissors... You win this round!";
                 case LIZARD:
+                    computerScore++;
                     return "Lizard poisons Spock... You lose this round!"; 
             }
         }
@@ -133,12 +153,11 @@ function getOutcomeMessage(userSignChoice, computerSignChoice) {
 const gameWinner = document.querySelector("#gameWinner")
 
 
-function incrementPlayerScore () {
-    let playerScore = parseInt(document.getQuery("player-score").innerText);
-    document.getElementById("player-score").innerText = ++playerScore;
-}
-
-function incrementComputerScore () {
-    let computerScore = parseInt(document.getQuery("computer-score").innerText);
-    document.getElementById("computer-score").innerText = ++computerScore;
-}
+function incrementPlayerScore() {
+    document.getElementById("player-score").innerText = playerScore;
+   }
+    
+   function incrementComputerScore() {
+    document.getElementById("computer-score").innerText = computerScore;
+   }
+   

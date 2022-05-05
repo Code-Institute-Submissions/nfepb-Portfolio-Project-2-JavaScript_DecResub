@@ -159,6 +159,12 @@ body {
     font-weight: 900;
 }
 
+.computer-btn {
+    justify-content: center;
+    margin: auto;
+    color: #34558bab;
+}
+
 /* Message area */
 
 #messages {
