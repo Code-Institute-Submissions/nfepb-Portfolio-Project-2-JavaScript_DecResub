@@ -16,8 +16,14 @@ const SPOCK = signChoices[4];
 
 let playerSignChoice = "";
 
+/* Default value for the score */
+
 let playerScore = 0;
 let computerScore = 0;
+
+const winnerBanner = document.getElementsByClassName("banner-display");
+const bannerHeader = document.getElementsByClassName("banner-header");
+const bannerParagraph = document.getElementsByClassName("banner-result");
 
 // Wait for the DOM to finish loading before running the game
 // Get the button elements and add event listeners to them
@@ -46,6 +52,7 @@ document.addEventListener("DOMContentLoaded", function() {
         document.getElementById("outcome-message").innerHTML = outcomeMessage;
         incrementPlayerScore();
         incrementComputerScore();
+        showWinner(bannerDisplay, bannerHeader, bannerParagraph);
     });
 });
 
@@ -160,4 +167,39 @@ function incrementPlayerScore() {
    function incrementComputerScore() {
     document.getElementById("computer-score").innerText = computerScore;
    }
-   
+
+/** Check if player/computer score is equal to 5.
+* Displays the winner block.
+* Header will display if the player has won or lost the game with the final scores.
+*/
+
+function showWinner(bannerDisplay, bannerHeader, bannerParagraph) {
+    if (playerScore === 5) {
+        bannerDisplay.style.display = 'block';
+        bannerHeader.textContent = 'You Win The Game!';
+        bannerParagraph.textContent = `You: ${playerScore} > Computer: ${computerScore}`;
+    } else if (computerScore === 5) {
+        bannerDisplay.style.display = 'block';
+        bannerHeader.textContent = 'You Lose The Game!';
+        bannerParagraph.textContent = `Computer: ${computerScore} > You: ${playerScore}`;
+    }
+}
+
+function closeBanner(modal) {
+    modal.style.display = 'none';
+    resetGame(playerScore, computerScore);
+}
+
+/**
+ * Player score and Computer score are set to 0.
+ * Computer icon is set back to a question mark. */
+
+ function resetGame(player, computer) {
+    playerScore = 0;
+    computerScore = 0;
+    player.innerHTML = playerScore;
+    computer.innerHTML = computerScore;
+    roundText.innerHTML = '';
+    bonusRoundText.innerHTML = '';
+    document.getElementById('computer-icon').className = `fas fa-question`;
+}

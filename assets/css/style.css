@@ -157,6 +157,7 @@ body {
     background-color: white;
     color: #4C8577;
     font-weight: 900;
+    cursor: pointer;
 }
 
 .computer-btn {
@@ -184,6 +185,42 @@ body {
 .scoreboard-area {
     display: flex;
     justify-content: center;
+}
+
+/* Banner for the winner outcome end of game */
+
+.banner-display {
+    display: none; /* Banner is hidden by default */
+    position: fixed; 
+    z-index: 1; 
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+}
+
+.banner-content {
+    position: relative;
+    background-color: rgb(245, 231, 128);
+    text-align: center;
+    color: #34558bab;
+    margin: 15% auto; 
+    padding: 3rem;
+    border: 3px solid black;
+    width: 75%; 
+}
+.close {
+    color: black;
+    position: absolute;
+    right: 0.625rem;
+    top: 0.625rem;
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.close:hover {
+    color: white;
+    cursor: pointer;
 }
 
 /* footer */
