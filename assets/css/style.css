@@ -209,7 +209,8 @@ body {
     border: 3px solid black;
     width: 75%; 
 }
-.close {
+
+#close {
     color: black;
     position: absolute;
     right: 0.625rem;
@@ -218,7 +219,7 @@ body {
     font-weight: bold;
 }
 
-.close:hover {
+#close:hover {
     color: white;
     cursor: pointer;
 }

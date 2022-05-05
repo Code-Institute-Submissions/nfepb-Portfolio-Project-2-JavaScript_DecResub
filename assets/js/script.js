@@ -47,9 +47,14 @@ document.addEventListener("DOMContentLoaded", function() {
 
         const outcomeMessage = getOutcomeMessage(playerSignChoice, computerChoice);
         document.getElementById("outcome-message").innerHTML = outcomeMessage;
-        incrementPlayerScore();
-        incrementComputerScore();
+        displayPlayerScore();
+        displayComputerScore();
         showWinner();
+    });
+    const closeButton = document.getElementById("close");
+    closeButton.addEventListener("click", function(){
+        resetGame(); 
+        closeBanner();
     });
 });
 
@@ -62,9 +67,16 @@ function getComputerSignChoice () {
 
 /** Display computer choice */
 
+// const someString = "this is a string";
+// const otherString = 'this is also a string';
+// const nestedStrings = "hello I'm 'Max'";
+// const concatStrings = "this is my string " + someString;
+// const templateLiterals = `this is my string ${someString}`;
+
+
 function displayComputerChoice(computerChoice){
-let computerChoiceIcon = document.getElementById("computer-sign");
-computerChoiceIcon.className = "fas fa-hand-${computerChoice}";
+    let computerChoiceIcon = document.getElementById("computer-sign");
+    computerChoiceIcon.className = `fas fa-hand-${computerChoice}`;
 }
 
 /** function comparing player choice and computer choice */
@@ -159,11 +171,11 @@ function getOutcomeMessage(userSignChoice, computerSignChoice) {
 const gameWinner = document.querySelector("#gameWinner")
 
 
-function incrementPlayerScore() {
+function displayPlayerScore() {
     document.getElementById("player-score").innerText = playerScore;
    }
     
-   function incrementComputerScore() {
+   function displayComputerScore() {
     document.getElementById("computer-score").innerText = computerScore;
    }
 
@@ -172,7 +184,7 @@ function incrementPlayerScore() {
 * Header will display if the player has won or lost the game with the final scores.
 */
 
-function showWinner(bannerDisplay, bannerHeader, bannerParagraph) {
+function showWinner() {
     if (playerScore === 5) {
         bannerDisplay.style.display = 'block';
         bannerHeader.textContent = 'You Win The Game!';
@@ -184,20 +196,19 @@ function showWinner(bannerDisplay, bannerHeader, bannerParagraph) {
     }
 }
 
-function closeBanner(close) {
-    close.style.display = 'none';
-    resetGame(playerScore, computerScore);
+function closeBanner() {
+    bannerDisplay.style.display = 'none';
 }
 
 /**
  * Player score and Computer score are set to 0.
  * Computer icon is set back to a question mark. */
 
- function resetGame(player, computer) {
+ function resetGame() {
     playerScore = 0;
     computerScore = 0;
-    player.innerHTML = playerScore;
-    computer.innerHTML = computerScore;
+    displayPlayerScore();
+    displayComputerScore();
     outcomeMessage.innerHTML = "Ready for the next round?";
     document.getElementById("computer-sign").className = "fas fa-question";
 }
