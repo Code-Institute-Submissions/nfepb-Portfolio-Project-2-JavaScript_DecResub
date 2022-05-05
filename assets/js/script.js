@@ -21,9 +21,9 @@ let playerSignChoice = "";
 let playerScore = 0;
 let computerScore = 0;
 
-const winnerBanner = document.getElementsByClassName("banner-display");
-const bannerHeader = document.getElementsByClassName("banner-header");
-const bannerParagraph = document.getElementsByClassName("banner-result");
+const bannerDisplay = document.getElementsByClassName("banner-display")[0];
+const bannerHeader = document.getElementsByClassName("banner-header")[0];
+const bannerParagraph = document.getElementsByClassName("banner-result")[0];
 
 // Wait for the DOM to finish loading before running the game
 // Get the button elements and add event listeners to them
@@ -42,17 +42,14 @@ document.addEventListener("DOMContentLoaded", function() {
     const selectButton = document.querySelector(".select-btn")
     selectButton.addEventListener("click", function() {
         const computerChoice = getComputerSignChoice();
+        displayComputerChoice(computerChoice);
         document.getElementById("computer-sign").innerHTML = computerChoice;
 
-        // ??? Image choice to fix: 
-        // computerChoiceIcon.className = "fas fa-hand-${computerChoice} ${computerChoice}-btn"; 
-
         const outcomeMessage = getOutcomeMessage(playerSignChoice, computerChoice);
-        console.log(outcomeMessage);
         document.getElementById("outcome-message").innerHTML = outcomeMessage;
         incrementPlayerScore();
         incrementComputerScore();
-        showWinner(bannerDisplay, bannerHeader, bannerParagraph);
+        showWinner();
     });
 });
 
@@ -65,8 +62,10 @@ function getComputerSignChoice () {
 
 /** Display computer choice */
 
+function displayComputerChoice(computerChoice){
 let computerChoiceIcon = document.getElementById("computer-sign");
-document.getElementById("computer-sign").classList= "fas fa-hand-${computerChoice}";
+computerChoiceIcon.className = "fas fa-hand-${computerChoice}";
+}
 
 /** function comparing player choice and computer choice */
 
@@ -185,8 +184,8 @@ function showWinner(bannerDisplay, bannerHeader, bannerParagraph) {
     }
 }
 
-function closeBanner(modal) {
-    modal.style.display = 'none';
+function closeBanner(close) {
+    close.style.display = 'none';
     resetGame(playerScore, computerScore);
 }
 
@@ -199,7 +198,6 @@ function closeBanner(modal) {
     computerScore = 0;
     player.innerHTML = playerScore;
     computer.innerHTML = computerScore;
-    roundText.innerHTML = '';
-    bonusRoundText.innerHTML = '';
-    document.getElementById('computer-icon').className = `fas fa-question`;
+    outcomeMessage.innerHTML = "Ready for the next round?";
+    document.getElementById("computer-sign").className = "fas fa-question";
 }
