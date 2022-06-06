@@ -217,18 +217,14 @@ function closeBanner() {
 // Difficulty level choice function
 
 $("#DifficultyChoice").click( () => {
-    if (difficultyLevel === "easy") {
-            document.getElementById("timer").innerText = easyDifficultyTimer;
-           }
-    } else {
-        if (difficultyLevel === "medium") {
+    if (difficultyLevel === "medium") {
             document.getElementById("timer").innerText = mediumDifficultyTimer;
+    } else if (difficultyLevel === "hard") {
+            document.getElementById("timer").innerText = hardDifficultyTimer;
         } else {
-            if (difficultyLevel === "hard") {
-                document.getElementById("timer").innerText = hardDifficultyTimer;
+                document.getElementById("timer").innerText = easyDifficultyTimer;
             }
         }
-    }
 );
 
 
