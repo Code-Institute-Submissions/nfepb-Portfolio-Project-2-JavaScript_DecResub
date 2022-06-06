@@ -218,37 +218,40 @@ function closeBanner() {
 
 $("#DifficultyChoice").click( () => {
     if (difficultyLevel === "easy") {
-        $("#easyInfo").modal("show");
+            document.getElementById("timer").innerText = easyDifficultyTimer;
+           }
     } else {
         if (difficultyLevel === "medium") {
-            $("#medInfo").modal("show");
+            document.getElementById("timer").innerText = mediumDifficultyTimer;
         } else {
             if (difficultyLevel === "hard") {
-                $("#hardInfo").modal("show");
+                document.getElementById("timer").innerText = hardDifficultyTimer;
             }
         }
     }
-});
+);
 
-function difficulty(value) {
-    switch (value) {
-        case "easy":
-            restart();
-            easyDifficulty();
-            selectedDifficulty = "easy";
-            break;
-        case "medium":
-            restart();
-            countdownTimer();
-            mediumDifficulty();
-            selectedDifficulty = "medium";
-            break;
-        case "hard":
-            restart();
-            countdownTimer();
-            hardDifficulty();
-            selectedDifficulty = "hard";
-        default:
-            break;
+
+// Countdown Timer function to start from the first click on "select sign" button 
+
+function countdownStart() {
+    if (moves == 1) {
+        diffTimer = setInterval(function () {
+            countDown--;
+            getElementById("timer")[0].innerHTML = timeRemaining;
+            if (countDown == 5) {
+                $("#countdown").css("color", "#ffbf00")
+            }
+            if (countDown == 3) {
+                $("#countdown").css("color", "#ff0000")
+            }
+            if (countDown == 0) {
+                timeLoser();
+            }
+        }, 1000);
     }
 };
+
+// When TimeRemaining in the countdownStart() is === 0, this function is called
+
+
