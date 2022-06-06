@@ -8,7 +8,19 @@ const SCISSORS = signChoices[2];
 const LIZARD = signChoices[3];
 const SPOCK = signChoices[4];
 
+let playerName = "";
 let playerSignChoice = "";
+let difficultyLevel = "easy";
+
+const hiddenClassName = "hidden";
+
+// HTML elements
+
+const gameArea = document.getElementsByClassName("game-area")[0];
+const scoreboardArea = document.getElementsByClassName("scoreboard-area")[0];
+const gameSettingArea = document.getElementsByClassName("game-setting")[0];
+const playerNameInput = document.getElementById("player-name");
+const timerElement = document.getElementById("timer");
 
 /* Default value for the score */
 
@@ -21,7 +33,9 @@ const bannerParagraph = document.getElementsByClassName("banner-result")[0];
 
 // Difficulty level
 
-let difficultyLevel = "easy";
+const easyDifficultyTimeInSeconds = 10;
+const mediumDifficultyTimeInSeconds = 5;
+const hardDifficultyTimeInSeconds = 3;
 
 // Start value for the countdown timer
 
@@ -31,7 +45,22 @@ let timeRemaining = 0;
 // Get the button elements and add event listeners to them
 
 document.addEventListener("DOMContentLoaded", function () {
+  const startGameButton = document.getElementById("launch-game");
   const choiceButtons = document.querySelectorAll(".choice-btn");
+
+  startGameButton.addEventListener("click", (e) => {
+    gameArea.classList.remove(hiddenClassName);
+    scoreboardArea.classList.remove(hiddenClassName);
+    gameSettingArea.classList.add(hiddenClassName);
+    playerName = playerNameInput.value;
+    displayPlayerName();
+    const checkRadioBtnElement = document.querySelector(
+      'input[name="difficulty"]:checked'
+    );
+    difficultyLevel = checkRadioBtnElement.value;
+    console.log(difficultyLevel);
+    countdownStart();
+  });
 
   choiceButtons.forEach(function (choiceButton) {
     choiceButton.addEventListener("click", function (event) {
@@ -52,6 +81,7 @@ document.addEventListener("DOMContentLoaded", function () {
     displayPlayerScore();
     displayComputerScore();
     showWinner();
+    countdownStart();
   });
   const closeButton = document.getElementById("close");
   closeButton.addEventListener("click", function () {
@@ -160,6 +190,12 @@ function getOutcomeMessage(userSignChoice, computerSignChoice) {
   }
 }
 
+// Display player name in score area
+
+function displayPlayerName() {
+  document.getElementById("player-name-display").innerText = playerName;
+}
+
 /** Outcome of the comparison logic */
 
 const gameWinner = document.querySelector("#gameWinner");
@@ -206,36 +242,26 @@ function resetGame() {
   document.getElementById("computer-sign").className = "fas fa-question";
 }
 
-// Difficulty level choice function
-
-$("#DifficultyChoice").click(() => {
-  if (difficultyLevel === "medium") {
-    document.getElementById("timer").innerText = mediumDifficultyTimer;
-  } else if (difficultyLevel === "hard") {
-    document.getElementById("timer").innerText = hardDifficultyTimer;
-  } else {
-    document.getElementById("timer").innerText = easyDifficultyTimer;
-  }
-});
-
 // Countdown Timer function to start from the first click on "select sign" button
 
 function countdownStart() {
-  if (moves == 1) {
-    diffTimer = setInterval(function () {
-      countDown--;
-      getElementById("timer")[0].innerHTML = timeRemaining;
-      if (countDown == 5) {
-        $("#countdown").css("color", "#ffbf00");
-      }
-      if (countDown == 3) {
-        $("#countdown").css("color", "#ff0000");
-      }
-      if (countDown == 0) {
-        timeLoser();
-      }
-    }, 1000);
+  switch (difficultyLevel) {
+    case "easy":
+      timeRemaining = easyDifficultyTimeInSeconds;
+      break;
+    case "medium":
+      timeRemaining = mediumDifficultyTimeInSeconds;
+      break;
+    case "hard":
+      timeRemaining = hardDifficultyTimeInSeconds;
+      break;
+    default:
+      timeRemaining = easyDifficultyTimeInSeconds;
   }
+  timerElement.innerHTML = timeRemaining;
+  const countdownId = setInterval(() => {
+    timeRemaining--;
+    timerElement.innerHTML = timeRemaining;
+    if (timeRemaining <= 0) clearInterval(countdownId);
+  }, 1000);
 }
-
-// When TimeRemaining in the countdownStart() is === 0, this function is called

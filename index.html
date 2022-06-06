@@ -39,14 +39,17 @@
 
     <!-- Difficulty banner  -->
 
-    <div>
+    <div class="game-setting">
+      <p>What is your name?</p>
+      <input type="text" placeholder="Batman" id="player-name" />
       <p>What difficulty do you wish to play in?</p>
-      <input type="radio" name="difficulty" id="easy" checked />
+      <input type="radio" name="difficulty" value="easy" checked />
       <label for="easy">Easy</label>
-      <input type="radio" name="difficulty" id="medium" />
+      <input type="radio" name="difficulty" value="medium" />
       <label for="medium">Medium</label>
-      <input type="radio" name="difficulty" id="hard" />
+      <input type="radio" name="difficulty" value="hard" />
       <label for="hard">Hard</label>
+      <button type="submit" id="launch-game">I'm ready!</button>
     </div>
 
     <!-- Game Area with player selector div -->
@@ -89,10 +92,13 @@
 
     <!-- Scoreboard area -->
 
-    <section class="scoreboard-area">
+    <section class="scoreboard-area hidden">
       <div id="messages">
         <div class="player">
-          <h2 class="scores">Your score: <span id="player-score">0</span></h2>
+          <h2 class="scores">
+            <span id="player-name-display">Your</span>'s score:
+            <span id="player-score">0</span>
+          </h2>
         </div>
         <div class="computer">
           <h2 class="scores">
