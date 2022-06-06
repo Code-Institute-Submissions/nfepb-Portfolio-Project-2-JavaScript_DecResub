@@ -1,12 +1,6 @@
 /** Constants */
 
-const signChoices = [
-    "rock",
-    "paper",
-    "scissors",
-    "lizard",
-    "spock"
-]
+const signChoices = ["rock", "paper", "scissors", "lizard", "spock"];
 
 const ROCK = signChoices[0];
 const PAPER = signChoices[1];
@@ -36,218 +30,212 @@ let timeRemaining = 0;
 // Wait for the DOM to finish loading before running the game
 // Get the button elements and add event listeners to them
 
-document.addEventListener("DOMContentLoaded", function() {
-    const choiceButtons = document.querySelectorAll(".choice-btn");
+document.addEventListener("DOMContentLoaded", function () {
+  const choiceButtons = document.querySelectorAll(".choice-btn");
 
-    choiceButtons.forEach(function(choiceButton) {
-        choiceButton.addEventListener("click", function(event) {
-            playerSignChoice = event.currentTarget.id;
-        });
+  choiceButtons.forEach(function (choiceButton) {
+    choiceButton.addEventListener("click", function (event) {
+      playerSignChoice = event.currentTarget.id;
     });
+  });
 
-    /** Launch the game on "sign choice" button click and calls on function to calculate outcome */ 
+  /** Launch the game on "sign choice" button click and calls on function to calculate outcome */
 
-    const selectButton = document.querySelector(".select-btn")
-    selectButton.addEventListener("click", function() {
-        const computerChoice = getComputerSignChoice();
-        displayComputerChoice(computerChoice);
-        document.getElementById("computer-sign").innerHTML = computerChoice;
+  const selectButton = document.querySelector(".select-btn");
+  selectButton.addEventListener("click", function () {
+    const computerChoice = getComputerSignChoice();
+    displayComputerChoice(computerChoice);
+    document.getElementById("computer-sign").innerHTML = computerChoice;
 
-        const outcomeMessage = getOutcomeMessage(playerSignChoice, computerChoice);
-        document.getElementById("outcome-message").innerHTML = outcomeMessage;
-        displayPlayerScore();
-        displayComputerScore();
-        showWinner();
-    });
-    const closeButton = document.getElementById("close");
-    closeButton.addEventListener("click", function(){
-        resetGame(); 
-        closeBanner();
-    });
+    const outcomeMessage = getOutcomeMessage(playerSignChoice, computerChoice);
+    document.getElementById("outcome-message").innerHTML = outcomeMessage;
+    displayPlayerScore();
+    displayComputerScore();
+    showWinner();
+  });
+  const closeButton = document.getElementById("close");
+  closeButton.addEventListener("click", function () {
+    resetGame();
+    closeBanner();
+  });
 });
 
 /** Function defining randomly the computer sign */
 
-function getComputerSignChoice () {
-    const randomIndex = (Math.floor(Math.random() * 5));
-    return signChoices[randomIndex];
+function getComputerSignChoice() {
+  const randomIndex = Math.floor(Math.random() * 5);
+  return signChoices[randomIndex];
 }
 
 /** Display computer choice */
 
-function displayComputerChoice(computerChoice){
-    let computerChoiceIcon = document.getElementById("computer-sign");
-    computerChoiceIcon.className = `fas fa-hand-${computerChoice}`;
+function displayComputerChoice(computerChoice) {
+  let computerChoiceIcon = document.getElementById("computer-sign");
+  computerChoiceIcon.className = `fas fa-hand-${computerChoice}`;
 }
 
 /** function comparing player choice and computer choice */
 
 function getOutcomeMessage(userSignChoice, computerSignChoice) {
-    if (userSignChoice === computerSignChoice) {
-        outcomeMessage = "It's a draw! Go again!"
-    }
+  if (userSignChoice === computerSignChoice) {
+    outcomeMessage = "It's a draw! Go again!";
+  }
 
-    switch(userSignChoice) {
-        case ROCK:
-            switch(computerSignChoice) {
-                case SCISSORS:   
-                    playerScore++;
-                    return "Rock crushes scissors... You win this round!";
-                case LIZARD:
-                    playerScore++;
-                    return "Rock crushes lizard... You win this round!";
-                case PAPER:
-                    computerScore++;
-                    return "Paper covers rock... You lose this round!";
-                case SPOCK:
-                    computerScore++;
-                    return "Spock vaporizes rock... You lose this round!";
-            }
-        case PAPER:
-            switch(computerSignChoice) {
-                case ROCK:
-                    playerScore++;
-                    return "Paper covers rock... You win this round!";
-                case SPOCK:
-                    playerScore++;
-                    return "Paper disproves Spock... You win this round!";
-                case SCISSORS:
-                    computerScore++;
-                    return "Scissors cut paper... You lose this round!";
-                case LIZARD:
-                    computerScore++;
-                    return "Lizard eats paper... You lose this round";
-            }
+  switch (userSignChoice) {
+    case ROCK:
+      switch (computerSignChoice) {
         case SCISSORS:
-            switch(computerSignChoice) {
-                case PAPER:
-                    playerScore++;
-                    return "Scissors cut paper... You win this round!";
-                case LIZARD:
-                    playerScore++;
-                    return "Scissors decapitates lizard... You win this round!";
-                case ROCK:
-                    computerScore++;
-                    return "Rock crushes scissors... You lose this round!";
-                case SPOCK:
-                    computerScore++;
-                    return "Spock smashes scissors... You lose this round!";
-            }
+          playerScore++;
+          return "Rock crushes scissors... You win this round!";
         case LIZARD:
-            switch(computerSignChoice) {
-                case ROCK:
-                    computerScore++;
-                    return "Rock crushes lizard... You lose this round!";
-                case PAPER:
-                    playerScore++;
-                    return "Lizard eats paper... You win this round!";
-                case SCISSORS:
-                    computerScore++;
-                    return "Scissors decapitates lizard... You lose this round!";
-                case SPOCK:
-                    playerScore++;
-                    return "Lizard poisons Spock... You win this round!";
-            }
+          playerScore++;
+          return "Rock crushes lizard... You win this round!";
+        case PAPER:
+          computerScore++;
+          return "Paper covers rock... You lose this round!";
         case SPOCK:
-            switch(computerSignChoice) {
-                case ROCK:
-                    playerScore++;
-                    return "Spock vaporizes rock... You win this round!";
-                case PAPER:
-                    computerScore++;
-                    return "Paper disproves Spock... You lose this round!";
-                case SCISSORS:
-                    playerScore++;
-                    return "Spock smashes scissors... You win this round!";
-                case LIZARD:
-                    computerScore++;
-                    return "Lizard poisons Spock... You lose this round!"; 
-            }
-        }
-    }  
-    
+          computerScore++;
+          return "Spock vaporizes rock... You lose this round!";
+      }
+    case PAPER:
+      switch (computerSignChoice) {
+        case ROCK:
+          playerScore++;
+          return "Paper covers rock... You win this round!";
+        case SPOCK:
+          playerScore++;
+          return "Paper disproves Spock... You win this round!";
+        case SCISSORS:
+          computerScore++;
+          return "Scissors cut paper... You lose this round!";
+        case LIZARD:
+          computerScore++;
+          return "Lizard eats paper... You lose this round";
+      }
+    case SCISSORS:
+      switch (computerSignChoice) {
+        case PAPER:
+          playerScore++;
+          return "Scissors cut paper... You win this round!";
+        case LIZARD:
+          playerScore++;
+          return "Scissors decapitates lizard... You win this round!";
+        case ROCK:
+          computerScore++;
+          return "Rock crushes scissors... You lose this round!";
+        case SPOCK:
+          computerScore++;
+          return "Spock smashes scissors... You lose this round!";
+      }
+    case LIZARD:
+      switch (computerSignChoice) {
+        case ROCK:
+          computerScore++;
+          return "Rock crushes lizard... You lose this round!";
+        case PAPER:
+          playerScore++;
+          return "Lizard eats paper... You win this round!";
+        case SCISSORS:
+          computerScore++;
+          return "Scissors decapitates lizard... You lose this round!";
+        case SPOCK:
+          playerScore++;
+          return "Lizard poisons Spock... You win this round!";
+      }
+    case SPOCK:
+      switch (computerSignChoice) {
+        case ROCK:
+          playerScore++;
+          return "Spock vaporizes rock... You win this round!";
+        case PAPER:
+          computerScore++;
+          return "Paper disproves Spock... You lose this round!";
+        case SCISSORS:
+          playerScore++;
+          return "Spock smashes scissors... You win this round!";
+        case LIZARD:
+          computerScore++;
+          return "Lizard poisons Spock... You lose this round!";
+      }
+  }
+}
 
-/** Outcome of the comparison logic */ 
+/** Outcome of the comparison logic */
 
-const gameWinner = document.querySelector("#gameWinner")
-
+const gameWinner = document.querySelector("#gameWinner");
 
 function displayPlayerScore() {
-    document.getElementById("player-score").innerText = playerScore;
-   }
-    
-   function displayComputerScore() {
-    document.getElementById("computer-score").innerText = computerScore;
-   }
+  document.getElementById("player-score").innerText = playerScore;
+}
+
+function displayComputerScore() {
+  document.getElementById("computer-score").innerText = computerScore;
+}
 
 /** Check if player/computer score is equal to 5.
-* Displays the winner block.
-* Header will display if the player has won or lost the game with the final scores.
-*/
+ * Displays the winner block.
+ * Header will display if the player has won or lost the game with the final scores.
+ */
 
 function showWinner() {
-    if (playerScore === 5) {
-        bannerDisplay.style.display = 'block';
-        bannerHeader.textContent = 'You Win The Game!';
-        bannerParagraph.textContent = `You: ${playerScore} > Computer: ${computerScore}`;
-    } else if (computerScore === 5) {
-        bannerDisplay.style.display = 'block';
-        bannerHeader.textContent = 'You Lose The Game!';
-        bannerParagraph.textContent = `Computer: ${computerScore} > You: ${playerScore}`;
-    }
+  if (playerScore === 5) {
+    bannerDisplay.style.display = "block";
+    bannerHeader.textContent = "You Win The Game!";
+    bannerParagraph.textContent = `You: ${playerScore} > Computer: ${computerScore}`;
+  } else if (computerScore === 5) {
+    bannerDisplay.style.display = "block";
+    bannerHeader.textContent = "You Lose The Game!";
+    bannerParagraph.textContent = `Computer: ${computerScore} > You: ${playerScore}`;
+  }
 }
 
 function closeBanner() {
-    bannerDisplay.style.display = 'none';
+  bannerDisplay.style.display = "none";
 }
 
 /**
  * Player score and Computer score are set to 0.
  * Computer icon is set back to a question mark. */
 
- function resetGame() {
-    playerScore = 0;
-    computerScore = 0;
-    displayPlayerScore();
-    displayComputerScore();
-    outcomeMessage.innerHTML = "Ready for the next round?";
-    document.getElementById("computer-sign").className = "fas fa-question";
+function resetGame() {
+  playerScore = 0;
+  computerScore = 0;
+  displayPlayerScore();
+  displayComputerScore();
+  outcomeMessage.innerHTML = "Ready for the next round?";
+  document.getElementById("computer-sign").className = "fas fa-question";
 }
 
 // Difficulty level choice function
 
-$("#DifficultyChoice").click( () => {
-    if (difficultyLevel === "medium") {
-            document.getElementById("timer").innerText = mediumDifficultyTimer;
-    } else if (difficultyLevel === "hard") {
-            document.getElementById("timer").innerText = hardDifficultyTimer;
-        } else {
-                document.getElementById("timer").innerText = easyDifficultyTimer;
-            }
-        }
-);
+$("#DifficultyChoice").click(() => {
+  if (difficultyLevel === "medium") {
+    document.getElementById("timer").innerText = mediumDifficultyTimer;
+  } else if (difficultyLevel === "hard") {
+    document.getElementById("timer").innerText = hardDifficultyTimer;
+  } else {
+    document.getElementById("timer").innerText = easyDifficultyTimer;
+  }
+});
 
-
-// Countdown Timer function to start from the first click on "select sign" button 
+// Countdown Timer function to start from the first click on "select sign" button
 
 function countdownStart() {
-    if (moves == 1) {
-        diffTimer = setInterval(function () {
-            countDown--;
-            getElementById("timer")[0].innerHTML = timeRemaining;
-            if (countDown == 5) {
-                $("#countdown").css("color", "#ffbf00")
-            }
-            if (countDown == 3) {
-                $("#countdown").css("color", "#ff0000")
-            }
-            if (countDown == 0) {
-                timeLoser();
-            }
-        }, 1000);
-    }
-};
+  if (moves == 1) {
+    diffTimer = setInterval(function () {
+      countDown--;
+      getElementById("timer")[0].innerHTML = timeRemaining;
+      if (countDown == 5) {
+        $("#countdown").css("color", "#ffbf00");
+      }
+      if (countDown == 3) {
+        $("#countdown").css("color", "#ff0000");
+      }
+      if (countDown == 0) {
+        timeLoser();
+      }
+    }, 1000);
+  }
+}
 
 // When TimeRemaining in the countdownStart() is === 0, this function is called
-
-

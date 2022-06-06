@@ -199,6 +199,10 @@ body {
     height: 100%; 
 }
 
+.hidden {
+    display: none;
+}
+
 .banner-content {
     position: relative;
     background-color: rgb(245, 231, 128);
