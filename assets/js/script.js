@@ -25,6 +25,14 @@ const bannerDisplay = document.getElementsByClassName("banner-display")[0];
 const bannerHeader = document.getElementsByClassName("banner-header")[0];
 const bannerParagraph = document.getElementsByClassName("banner-result")[0];
 
+// Difficulty level
+
+let difficultyLevel = "easy";
+
+// Start value for the countdown timer
+
+let timeRemaining = 0;
+
 // Wait for the DOM to finish loading before running the game
 // Get the button elements and add event listeners to them
 
@@ -205,3 +213,42 @@ function closeBanner() {
     outcomeMessage.innerHTML = "Ready for the next round?";
     document.getElementById("computer-sign").className = "fas fa-question";
 }
+
+// Difficulty level choice function
+
+$("#DifficultyChoice").click( () => {
+    if (difficultyLevel === "easy") {
+        $("#easyInfo").modal("show");
+    } else {
+        if (difficultyLevel === "medium") {
+            $("#medInfo").modal("show");
+        } else {
+            if (difficultyLevel === "hard") {
+                $("#hardInfo").modal("show");
+            }
+        }
+    }
+});
+
+function difficulty(value) {
+    switch (value) {
+        case "easy":
+            restart();
+            easyDifficulty();
+            selectedDifficulty = "easy";
+            break;
+        case "medium":
+            restart();
+            countdownTimer();
+            mediumDifficulty();
+            selectedDifficulty = "medium";
+            break;
+        case "hard":
+            restart();
+            countdownTimer();
+            hardDifficulty();
+            selectedDifficulty = "hard";
+        default:
+            break;
+    }
+};
