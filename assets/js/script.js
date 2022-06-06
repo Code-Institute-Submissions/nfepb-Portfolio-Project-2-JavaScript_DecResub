@@ -67,13 +67,6 @@ function getComputerSignChoice () {
 
 /** Display computer choice */
 
-// const someString = "this is a string";
-// const otherString = 'this is also a string';
-// const nestedStrings = "hello I'm 'Max'";
-// const concatStrings = "this is my string " + someString;
-// const templateLiterals = `this is my string ${someString}`;
-
-
 function displayComputerChoice(computerChoice){
     let computerChoiceIcon = document.getElementById("computer-sign");
     computerChoiceIcon.className = `fas fa-hand-${computerChoice}`;
