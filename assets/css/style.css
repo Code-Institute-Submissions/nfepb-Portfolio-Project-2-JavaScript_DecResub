@@ -190,7 +190,6 @@ body {
 /* Banner for the winner outcome end of game */
 
 .banner-display {
-    display: none; /* Banner is hidden by default */
     position: fixed; 
     z-index: 1; 
     left: 0;
