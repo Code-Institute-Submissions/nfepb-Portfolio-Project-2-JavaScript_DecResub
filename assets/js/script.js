@@ -100,7 +100,6 @@ function getComputerSignChoice() {
 function displayComputerChoice(computerChoice) {
   let computerChoiceIcon = document.getElementById("computer-sign");
   computerChoiceIcon.className = `fas fa-hand-${computerChoice}`;
-  document.getElementById("computer-sign").innerHTML = computerChoice;
 }
 
 function displayOutcomeMessage(messageToDisplay) {
