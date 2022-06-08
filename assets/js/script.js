@@ -50,7 +50,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const startGameButton = document.getElementById("launch-game");
   const choiceButtons = document.querySelectorAll(".choice-btn");
 
-  startGameButton.addEventListener("click", (e) => {
+  startGameButton.addEventListener("click", () => {
     gameArea.classList.remove(hiddenClassName);
     scoreboardArea.classList.remove(hiddenClassName);
     gameSettingArea.classList.add(hiddenClassName);
@@ -199,8 +199,6 @@ function displayPlayerName() {
 }
 
 /** Outcome of the comparison logic */
-
-const gameWinner = document.querySelector("#gameWinner");
 
 function displayPlayerScore() {
   document.getElementById("player-score").innerText = playerScore;
