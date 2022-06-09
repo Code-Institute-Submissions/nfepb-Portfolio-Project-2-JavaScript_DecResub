@@ -1,3 +1,5 @@
+/*jshint esversion: 6 */
+
 /** Constants */
 
 const signChoices = ["rock", "paper", "scissors", "lizard", "spock"];
@@ -129,6 +131,7 @@ function getOutcomeMessage(userSignChoice, computerSignChoice) {
           incrementComputerScore();
           return "Spock vaporizes rock... You lose this round!";
       }
+      /* falls through */
     case PAPER:
       switch (computerSignChoice) {
         case ROCK:
@@ -144,6 +147,7 @@ function getOutcomeMessage(userSignChoice, computerSignChoice) {
           incrementComputerScore();
           return "Lizard eats paper... You lose this round";
       }
+      /* falls through */
     case SCISSORS:
       switch (computerSignChoice) {
         case PAPER:
@@ -159,6 +163,7 @@ function getOutcomeMessage(userSignChoice, computerSignChoice) {
           incrementComputerScore();
           return "Spock smashes scissors... You lose this round!";
       }
+      /* falls through */
     case LIZARD:
       switch (computerSignChoice) {
         case ROCK:
@@ -174,6 +179,7 @@ function getOutcomeMessage(userSignChoice, computerSignChoice) {
           incrementPlayerScore();
           return "Lizard poisons Spock... You win this round!";
       }
+      /* falls through */
     case SPOCK:
       switch (computerSignChoice) {
         case ROCK:

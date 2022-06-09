@@ -214,8 +214,10 @@ A button will be added to the banner upon completion of the game to allow the us
 
 #### Wireframes
 
-![Figma Skeleton Prototype Welcome](ulr github)<br>
-![Figma Skeleton Prototype](ulr github)<br>
+![Figma Skeleton Prototype Welcome](https://github.com/nfepb/Portfolio-Project-2-JavaScript/blob/main/assets/images/Figma%20Skeleton%20Prototype%20Welcome.png)<br>
+![Figma Skeleton Prototype Game](https://github.com/nfepb/Portfolio-Project-2-JavaScript/blob/main/assets/images/Figma%20Skeleton%20Prototype%20Game.png)<br>
+![Figma Skeleton Prototype Phone Welcome](https://github.com/nfepb/Portfolio-Project-2-JavaScript/blob/main/assets/images/Figma%20Skeleton%20Prototype%20Phone%20Welcome.png)<br>
+![Figma Skeleton Prototype Phone Game](https://github.com/nfepb/Portfolio-Project-2-JavaScript/blob/main/assets/images/Figma%20Skeleton%20Prototype%20Phone%20Game.png)<br>
 
 ### **The Surface Plane**
 
@@ -239,5 +241,90 @@ The header and the body are using the [Fuzzy Bubbles](https://fonts.google.com/s
 
 The logo displayed at the top of the page is a free icon. It can be found on the website of flaticons under the name [Mental Health free icon](https://www.flaticon.com/free-icon/mental-health_3588658?term=study%20break&page=1&position=1&page=1&position=1&related_id=3588658&origin=search).<br>
 
+****
 
+## Features
 
+### Existing Features
+
+* Heading and Sub-heading.
+* User input banner.
+* Button to launch the game.
+* Game area with user input.
+* Countdown timer based on difficulty.
+* Outcome message.
+* Win/Lose Scores.
+* Banner announcing the winner.
+* Button to re-start game on the winner banner.
+* Footer - Information on how to win the game.
+
+### Features Left to Implement
+
+* Countdown run-out message.
+* Outcome message when the player wants to play the first round without initially selecting a sign.
+
+****
+## Technologies
+* [HTML](https://en.wikipedia.org/wiki/HTML)
+	* This project uses HTML as the main language used to complete the structure of the Website.
+* [CSS](https://en.wikipedia.org/wiki/CSS)
+	* This project uses custom written CSS to style the Website.
+* [JavaScript](https://en.wikipedia.org/wiki/JavaScript)
+	* This project uses JavaScript for functionality through the Website, this includes the Rock, Paper, Scissors, Lizard, Spock, the onclick button functions, the timer, the difficulty levels.
+* [Google Fonts](https://fonts.google.com/)
+	* Google fonts are used throughout the project to import the *Fuzzy Bubbles* and *Gloria Hallelujah* fonts.
+* [Font Awesome](https://fontawesome.com/)
+	* Font Awesome icons are used to display the user choices and the selected computer choice for the signs Rock, Paper, Scissors, Lizard, and Spock.
+* [GitHub](https://github.com/)
+	* GitHub is the hosting site used to store the source code for the Website and [Git Pages](https://pages.github.com/) is used for the deployment of the live site.
+* [Git](https://git-scm.com/)
+	* Git is used as version control software to commit and push code to the GitHub repository where the source code is stored.
+* [Google Chrome Developer Tools](https://developers.google.com/web/tools/chrome-devtools)
+	* Google chromes built in developer tools are used to inspect page elements and help debug issues with the site layout and with the JavaScript logic.
+* [Excel](https://www.microsoft.com/en-ie/microsoft-365/excel)
+    * Excel was used to log the different tests and outcomes during testing phase.
+
+****
+## Testing
+
+### Test Strategy
+#### **Summary**
+
+Testing is required on Rock, Paper, Scissors, Lizard, Spock JavaScript game created for Milestone Project 2. All features and user stories documented in the README are to be tested. 
+
+HTML code must pass through the [W3C HTML Validator](https://validator.w3.org/).
+
+CSS code must pass through the [W3C CSS Validator](https://jigsaw.w3.org/css-validator/).
+
+JavaScript code must pass through the [JSHint Validator](https://jshint.com/).
+
+#### **High Level Test Cases**
+
+### Test Results
+
+![Results](assets/test-results/test_results.jpg)<br>
+Full test results can be found [here](assets/test-results/ms2_test_results.xlsx)<br>
+Please note these results are a .xlsx file and will require excel, google docs or compatiable program to open the file.<br>
+All tests passed.
+Testing of custom 404 page was performed to ensure you could navigate back to the home page without needing to use the browser buttons.
+
+### Issues and Resolutions to issues found during testing
+* JSHint did not recognize constants in the JavaScript code. Based on a question raised on [Stackoverflow](https://stackoverflow.com/questions/37247474/es6-in-jshint-jshintrc-has-esversion-but-still-getting-warning-using-atom), "/*jshint esversion: 6 */" needed to be added on top of the script to disregard this known issue with ES6.
+* JSHint warned of an error in the Switch statements. Breaks were omitted by design. The solution provided to disregard this error was provided on [Stackoverflow](https://stackoverflow.com/questions/22398251/jshint-throws-aexpected-a-break-statement-before-case/22398337) by adding a comment "/* falls through */" after each case block for the user selected sign. 
+* Error of testing timer
+* Error of testing sign
+****
+
+## Deployment
+
+### Project Creation
+
+****
+## Credits
+
+### Code
+The JavaScript hangman game was created by following a tutorial on [Udemy](https://www.udemy.com/course/web-projects-with-vanilla-javascript/). This was then heavily modified to fit the game design, including but not limited to: Use of jQuery to change CSS and HTML properties, increase hangman size, add face to hangman, keep a game score, user initiated game play, text input, letter validation (regex and conditional statements), layout change from flex to use bootstrap, use of arrays for words and hints.
+
+### Acknowledgements
+I would like to thank slack user Charlie for her support and UX Design pointers throughout this project.
+****
