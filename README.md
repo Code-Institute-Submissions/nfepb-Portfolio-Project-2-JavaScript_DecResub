@@ -40,8 +40,8 @@ The aim of the game is to win 5 rounds. After providing his/her/their name, the 
   - [Issues and Resolutions](#Issues-and-Resolutions-to-issues-found-during-testing)
 
 - [Deployment](#Deployment)
-  - [Project Creation](#Project-Creation)
   - [GitHub Pages](#Using-Github-Pages)
+  - [Running locally](#running-locally)
   - [Locally](Run-Locally)
 - [Credits](#Credits)
 
@@ -296,8 +296,6 @@ The logo displayed at the top of the page is a free icon. It can be found on the
 
 ## Testing
 
-- Add excel here. <br>
-
 ### Test Strategy
 
 #### **Summary**
@@ -369,7 +367,28 @@ The Javascript file was validated using JSHint, with the following result. The N
 
 ## Deployment
 
-### Project Creation
+This project was built on the Gitpod IDE using the Code Institute template found [here](https://github.com/Code-Institute-Org/gitpod-full-template)
+
+### GitHub Pages
+
+GitHub Pages is a static site hosting service which uses files from a GitHub repository to publish a website. I used Github Pages to deploy this project following the process set out below.
+
+1. Open the Github repository page you wish to publish, in this case [Here](https://github.com/nfepb/Portfolio-Project-2-JavaScript).
+1. Click on the 'Settings' option from the list of options above the repo contents.
+1. Scroll down the page and select the source before clicking on the link to deploy.
+1. Click 'Save'.
+1. The URL for the website will be shown in a panel towards the top of the page. After a brief wait it will turn green indicating the website is published.
+
+![github-page-published](assets/images/repo-published.png)<br>
+
+### Running locally
+
+1. Navigate to the [GitHub Repository](https://github.com/nfepb/Portfolio-Project-2-JavaScript)
+1. Click the Code drop down menu.
+1. Download the ZIP file, unpackage locally and open with IDE OR Copy Git URL from the HTTPS dialogue box.
+1. Open your developement editor of choice and open a terminal window in a directory of your choice.
+1. Use the 'git clone' command in terminal followed by the copied git URL.
+1. A clone of the project will be created locally on your machine.
 
 ---
 
