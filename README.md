@@ -33,6 +33,10 @@ The aim of the game is to win 5 rounds. After providing his/her/their name, the 
 
   - [Test Strategy](#Test-Strategy)
   - [Test Results](#Test-Results)
+    - [Lighthouse](#lighthouse)
+    - [W3c CSS Validator](#w3c-css-validator)
+    - [JSHint](#jshint)
+    - [Testing game for achievement of user goals](#testing-game-for-achievement-of-user-goals)
   - [Issues and Resolutions](#Issues-and-Resolutions-to-issues-found-during-testing)
 
 - [Deployment](#Deployment)
@@ -316,10 +320,48 @@ This page was tested using the Lighthouse feature from the Chrome Browser, givin
 
 * Desktop:
 ![Lighthouse Desktop test result](assets/images/lighthouse-desktop-performance.png)<br>
-Full test results can be found [here](assets/test-results/ms2_test_results.xlsx)<br>
-Please note these results are a .xlsx file and will require excel, google docs or compatiable program to open the file.<br>
-All tests passed.
-Testing of custom 404 page was performed to ensure you could navigate back to the home page without needing to use the browser buttons.
+
+* Desktop:
+![Lighthouse Mobile test result](assets/images/lighthouse-mobile-performance.png)<br>
+
+The performance was performing lower due to style elements needed to be downloaded upon entering the website. 
+
+#### **W3 HTML Validator**
+
+The html file was tested using the W3 HTML validator showing 9 errors.
+
+[W3 HTML Validator](assets/images/html-validator-errors.png)
+
+* Due to the time left, no solution could be found prior to submitting the project.
+
+#### **W3c CSS Validator**
+
+The css file was tested using the W3c CSS validator showing no errors.
+
+[W3C CSS Validator](assets/images/w3c-css-validator.png)
+
+#### **JSHint**
+
+The Javascript file was validated using JSHint, with the following result. The New JavaScript features (ES6) option was ticked in the Configure menu.
+
+[JSHint test result](assets/images/jshint.png)
+
+#### **Testing game for achievement of user goals**
+
+|                       Goal                                              |                          Outcome                                                               |
+  |-------------------------------------------------------------------------|------------------------------------------------------------------------------------------------|
+  |As a user, I want to understand the main purpose of the site.                       |Instruction Page button prominently displayed.                                                  |
+  |To be entertained and engaged with the game from the initial load.       |Colour,sound and animation used in an effort to engage user.                                    |
+  |The game to function correctly and gameplay to be intuitive.             |No logic errors in code, sound used to signal correct/incorrect flips.                          |
+  |To be able to play the game on various different devices.                |Media queries used to make game accessible across a range of devices.                           |
+  |To be able to gauge/score my performance.                                |Timer function and Best time function meets this need.                                          |
+  |To be able to challenge myself by increasing difficulty of the game.     |Easy/Hard difficulty toggle options provided.                                                   |
+  |To be able to play the game on various different devices.                |Media queries used to make game accessible across a range of devices.                           |
+  |To be able to mute music/sound effects if so desired.                    |Music and sounds are optional, changed via the Instruction/option page.                         |
+  |To provide a fun game.                                                   |Colour,sound and animation used in an effort to engage user.                                    |
+  |To provide a game to stimulate mental function.                          |Game play requires attention and focus.                                                         |
+  |To encourage continued use of the game.                                  |Colour,sound and animation used in an effort to entertain user and encourage continued use.     |
+   
 
 ### Issues and Resolutions to issues found during testing
 
