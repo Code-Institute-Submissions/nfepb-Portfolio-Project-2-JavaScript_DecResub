@@ -310,21 +310,19 @@ CSS code must pass through the [W3C CSS Validator](https://jigsaw.w3.org/css-val
 
 JavaScript code must pass through the [JSHint Validator](https://jshint.com/).
 
-#### **High Level Test Cases**
-
 ### Test Results
 
 #### **Lighthouse**
 
 This page was tested using the Lighthouse feature from the Chrome Browser, giving the following results:
 
-* Desktop:
-![Lighthouse Desktop test result](assets/images/lighthouse-desktop-performance.png)<br>
+- Desktop:
+  ![Lighthouse Desktop test result](assets/images/lighthouse-desktop-performance.png)<br>
 
-* Desktop:
-![Lighthouse Mobile test result](assets/images/lighthouse-mobile-performance.png)<br>
+- Desktop:
+  ![Lighthouse Mobile test result](assets/images/lighthouse-mobile-performance.png)<br>
 
-The performance was performing lower due to style elements needed to be downloaded upon entering the website. 
+The performance was performing lower due to style elements needed to be downloaded upon entering the website.
 
 #### **W3 HTML Validator**
 
@@ -332,7 +330,7 @@ The html file was tested using the W3 HTML validator showing 9 errors.
 
 [W3 HTML Validator](assets/images/html-validator-errors.png)
 
-* Due to the time left, no solution could be found prior to submitting the project.
+- Due to the time left, no solution could be found prior to submitting the project.
 
 #### **W3c CSS Validator**
 
@@ -348,27 +346,24 @@ The Javascript file was validated using JSHint, with the following result. The N
 
 #### **Testing game for achievement of user goals**
 
-|                       Goal                                              |                          Outcome                                                               |
-  |-------------------------------------------------------------------------|------------------------------------------------------------------------------------------------|
-  |As a user, I want to understand the main purpose of the site.                       |Instruction Page button prominently displayed.                                                  |
-  |To be entertained and engaged with the game from the initial load.       |Colour,sound and animation used in an effort to engage user.                                    |
-  |The game to function correctly and gameplay to be intuitive.             |No logic errors in code, sound used to signal correct/incorrect flips.                          |
-  |To be able to play the game on various different devices.                |Media queries used to make game accessible across a range of devices.                           |
-  |To be able to gauge/score my performance.                                |Timer function and Best time function meets this need.                                          |
-  |To be able to challenge myself by increasing difficulty of the game.     |Easy/Hard difficulty toggle options provided.                                                   |
-  |To be able to play the game on various different devices.                |Media queries used to make game accessible across a range of devices.                           |
-  |To be able to mute music/sound effects if so desired.                    |Music and sounds are optional, changed via the Instruction/option page.                         |
-  |To provide a fun game.                                                   |Colour,sound and animation used in an effort to engage user.                                    |
-  |To provide a game to stimulate mental function.                          |Game play requires attention and focus.                                                         |
-  |To encourage continued use of the game.                                  |Colour,sound and animation used in an effort to entertain user and encourage continued use.     |
-   
+| Goal                                                                                               | Outcome                                                                             |
+| -------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- |
+| As a user, I want to understand the main purpose of the site.                                      | Header and introduction banner first visible.                                       |
+| As a user, I want to be able to visualise and interact with the website and content on any device. | Media queries used to make game accessible across a range of devices.               |
+| As a user, I want to easily understand the rules.                                                  | Game rules to win displayed at the top. Further explanation provided in the footer. |
+| As a user, I want to be able to start a game when I am ready.                                      | Submit button allows the user to start only when ready.                             |
+| As a user, I want to set a difficulty level to choose the challenge.                               | Easy/Medium/Hard difficulty radio options provided.                                 |
+| As a user, I want to know how much time I have left in the round.                                  | Timer function displaying time left based on the difficulty for each round.         |
+| As a user, I want to read the outcome of each round.                                               | Outcome message displayed after each round.                                         |
+| As a user, I want to know what is the current score of the game.                                   | Scoreboard displaying live score of players under the game area.                    |
+| As a user, I want to be able to start a new game when the current game has come to an end.         | Reset button on the display banner at end of game.                                  |
 
 ### Issues and Resolutions to issues found during testing
 
 - JSHint did not recognize constants in the JavaScript code. Based on a question raised on [Stackoverflow](https://stackoverflow.com/questions/37247474/es6-in-jshint-jshintrc-has-esversion-but-still-getting-warning-using-atom), "/_jshint esversion: 6 _/" needed to be added on top of the script to disregard this known issue with ES6.
 - JSHint warned of an error in the Switch statements. Breaks were omitted by design. The solution provided to disregard this error was provided on [Stackoverflow](https://stackoverflow.com/questions/22398251/jshint-throws-aexpected-a-break-statement-before-case/22398337) by adding a comment "/_ falls through _/" after each case block for the user selected sign.
-- Error of testing timer
-- Error of testing sign
+- No resolution found: improve site performance.
+- Display an outcome message when the timer is running out explaining the computer score incremented.
 
 ---
 
