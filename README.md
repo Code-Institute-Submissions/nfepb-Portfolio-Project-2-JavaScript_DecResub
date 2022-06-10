@@ -22,17 +22,19 @@ The aim of the game is to win 5 rounds. After providing his/her/their name, the 
       - [Colour Scheme](#Colour-Scheme)
       - [Typography](#Typography)
       - [Imagery](#Imagery)
-  - [Differences to Design](#Differences-to-Design)
 
 * [Features](#Features)
   - [Existing Features](#Existing-Features)
   - [Future Features](#Features-Left-to-Implement)
 
 - [Technologies](#Technologies)
+
 - [Testing](#Testing)
+
   - [Test Strategy](#Test-Strategy)
   - [Test Results](#Test-Results)
-  - [Isses and Resolutions](#Issues-and-Resolutions-to-issues-found-during-testing)
+  - [Issues and Resolutions](#Issues-and-Resolutions-to-issues-found-during-testing)
+
 - [Deployment](#Deployment)
   - [Project Creation](#Project-Creation)
   - [GitHub Pages](#Using-Github-Pages)
@@ -241,56 +243,62 @@ The header and the body are using the [Fuzzy Bubbles](https://fonts.google.com/s
 
 The logo displayed at the top of the page is a free icon. It can be found on the website of flaticons under the name [Mental Health free icon](https://www.flaticon.com/free-icon/mental-health_3588658?term=study%20break&page=1&position=1&page=1&position=1&related_id=3588658&origin=search).<br>
 
-****
+---
 
 ## Features
 
 ### Existing Features
 
-* Heading and Sub-heading.
-* User input banner.
-* Button to launch the game.
-* Game area with user input.
-* Countdown timer based on difficulty.
-* Outcome message.
-* Win/Lose Scores.
-* Banner announcing the winner.
-* Button to re-start game on the winner banner.
-* Footer - Information on how to win the game.
+- Heading and Sub-heading.
+- User input banner.
+- Button to launch the game.
+- Game area with user input.
+- Countdown timer based on difficulty.
+- Outcome message.
+- Win/Lose Scores.
+- Banner announcing the winner.
+- Button to re-start game on the winner banner.
+- Footer - Information on how to win the game.
 
 ### Features Left to Implement
 
-* Countdown run-out message.
-* Outcome message when the player wants to play the first round without initially selecting a sign.
+- Countdown run-out message.
+- Outcome message when the player wants to play the first round without initially selecting a sign.
 
-****
+---
+
 ## Technologies
-* [HTML](https://en.wikipedia.org/wiki/HTML)
-	* This project uses HTML as the main language used to complete the structure of the Website.
-* [CSS](https://en.wikipedia.org/wiki/CSS)
-	* This project uses custom written CSS to style the Website.
-* [JavaScript](https://en.wikipedia.org/wiki/JavaScript)
-	* This project uses JavaScript for functionality through the Website, this includes the Rock, Paper, Scissors, Lizard, Spock, the onclick button functions, the timer, the difficulty levels.
-* [Google Fonts](https://fonts.google.com/)
-	* Google fonts are used throughout the project to import the *Fuzzy Bubbles* and *Gloria Hallelujah* fonts.
-* [Font Awesome](https://fontawesome.com/)
-	* Font Awesome icons are used to display the user choices and the selected computer choice for the signs Rock, Paper, Scissors, Lizard, and Spock.
-* [GitHub](https://github.com/)
-	* GitHub is the hosting site used to store the source code for the Website and [Git Pages](https://pages.github.com/) is used for the deployment of the live site.
-* [Git](https://git-scm.com/)
-	* Git is used as version control software to commit and push code to the GitHub repository where the source code is stored.
-* [Google Chrome Developer Tools](https://developers.google.com/web/tools/chrome-devtools)
-	* Google chromes built in developer tools are used to inspect page elements and help debug issues with the site layout and with the JavaScript logic.
-* [Excel](https://www.microsoft.com/en-ie/microsoft-365/excel)
-    * Excel was used to log the different tests and outcomes during testing phase.
 
-****
+- [HTML](https://en.wikipedia.org/wiki/HTML)
+  - This project uses HTML as the main language used to complete the structure of the Website.
+- [CSS](https://en.wikipedia.org/wiki/CSS)
+  - This project uses custom written CSS to style the Website.
+- [JavaScript](https://en.wikipedia.org/wiki/JavaScript)
+  - This project uses JavaScript for functionality through the Website, this includes the Rock, Paper, Scissors, Lizard, Spock, the onclick button functions, the timer, the difficulty levels.
+- [Google Fonts](https://fonts.google.com/)
+  - Google fonts are used throughout the project to import the _Fuzzy Bubbles_ and _Gloria Hallelujah_ fonts.
+- [Font Awesome](https://fontawesome.com/)
+  - Font Awesome icons are used to display the user choices and the selected computer choice for the signs Rock, Paper, Scissors, Lizard, and Spock.
+- [GitHub](https://github.com/)
+  - GitHub is the hosting site used to store the source code for the Website and [Git Pages](https://pages.github.com/) is used for the deployment of the live site.
+- [Git](https://git-scm.com/)
+  - Git is used as version control software to commit and push code to the GitHub repository where the source code is stored.
+- [Google Chrome Developer Tools](https://developers.google.com/web/tools/chrome-devtools)
+  - Google chromes built in developer tools are used to inspect page elements and help debug issues with the site layout and with the JavaScript logic.
+- [Excel](https://www.microsoft.com/en-ie/microsoft-365/excel)
+  - Excel was used to log the different tests and outcomes during testing phase.
+
+---
+
 ## Testing
 
+- Add excel here. <br>
+
 ### Test Strategy
+
 #### **Summary**
 
-Testing is required on Rock, Paper, Scissors, Lizard, Spock JavaScript game created for Milestone Project 2. All features and user stories documented in the README are to be tested. 
+Testing is required on Rock, Paper, Scissors, Lizard, Spock JavaScript game created for Milestone Project 2. All features and user stories documented in the README are to be tested.
 
 HTML code must pass through the [W3C HTML Validator](https://validator.w3.org/).
 
@@ -302,29 +310,40 @@ JavaScript code must pass through the [JSHint Validator](https://jshint.com/).
 
 ### Test Results
 
-![Results](assets/test-results/test_results.jpg)<br>
+#### **Lighthouse**
+
+This page was tested using the Lighthouse feature from the Chrome Browser, giving the following results:
+
+* Desktop:
+![Lighthouse Desktop test result](assets/images/lighthouse-desktop-performance.png)<br>
 Full test results can be found [here](assets/test-results/ms2_test_results.xlsx)<br>
 Please note these results are a .xlsx file and will require excel, google docs or compatiable program to open the file.<br>
 All tests passed.
 Testing of custom 404 page was performed to ensure you could navigate back to the home page without needing to use the browser buttons.
 
 ### Issues and Resolutions to issues found during testing
-* JSHint did not recognize constants in the JavaScript code. Based on a question raised on [Stackoverflow](https://stackoverflow.com/questions/37247474/es6-in-jshint-jshintrc-has-esversion-but-still-getting-warning-using-atom), "/*jshint esversion: 6 */" needed to be added on top of the script to disregard this known issue with ES6.
-* JSHint warned of an error in the Switch statements. Breaks were omitted by design. The solution provided to disregard this error was provided on [Stackoverflow](https://stackoverflow.com/questions/22398251/jshint-throws-aexpected-a-break-statement-before-case/22398337) by adding a comment "/* falls through */" after each case block for the user selected sign. 
-* Error of testing timer
-* Error of testing sign
-****
+
+- JSHint did not recognize constants in the JavaScript code. Based on a question raised on [Stackoverflow](https://stackoverflow.com/questions/37247474/es6-in-jshint-jshintrc-has-esversion-but-still-getting-warning-using-atom), "/_jshint esversion: 6 _/" needed to be added on top of the script to disregard this known issue with ES6.
+- JSHint warned of an error in the Switch statements. Breaks were omitted by design. The solution provided to disregard this error was provided on [Stackoverflow](https://stackoverflow.com/questions/22398251/jshint-throws-aexpected-a-break-statement-before-case/22398337) by adding a comment "/_ falls through _/" after each case block for the user selected sign.
+- Error of testing timer
+- Error of testing sign
+
+---
 
 ## Deployment
 
 ### Project Creation
 
-****
+---
+
 ## Credits
 
 ### Code
-The JavaScript hangman game was created by following a tutorial on [Udemy](https://www.udemy.com/course/web-projects-with-vanilla-javascript/). This was then heavily modified to fit the game design, including but not limited to: Use of jQuery to change CSS and HTML properties, increase hangman size, add face to hangman, keep a game score, user initiated game play, text input, letter validation (regex and conditional statements), layout change from flex to use bootstrap, use of arrays for words and hints.
+
+The JavaScript Rock, Paper, Scissors, Lizard, Spock was created by following a published project on [Learnersbucket](https://learnersbucket.com/tutorials/js-projects/rock-paper-scissor-lizard-spock-game-in-javascript/). This was used as a source of inspiration and then heavily modified to fit the game design, including but not limited to: the timer countdown and the logic associated, the difficulty levels, the player input banner, the final outcome banner at the end of the game, the footer description with the rules.
 
 ### Acknowledgements
-I would like to thank slack user Charlie for her support and UX Design pointers throughout this project.
-****
+
+I would like to thank my friend Max for his support throughout this project, slack user Ronan_mentor for his advice and final JavaScript pointers on the last steps of this project.
+
+---
