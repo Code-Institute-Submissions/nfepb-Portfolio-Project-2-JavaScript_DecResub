@@ -138,6 +138,10 @@ body {
     color: white;
 }
 
+.selected-choice-btn > i {
+    border: red solid 10px;
+}
+
 .select-btn {
     background-color: #4C8577;
     border: 3px solid;
