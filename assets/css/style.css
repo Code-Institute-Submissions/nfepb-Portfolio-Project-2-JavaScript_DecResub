@@ -375,6 +375,10 @@ footer {
     list-style-type: none;
 }
 
+#how-to-play > li {
+    margin: 15px 0;
+}
+
 .rock-ftr {
     color: red;
 }
