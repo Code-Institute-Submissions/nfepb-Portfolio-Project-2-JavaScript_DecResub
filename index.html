@@ -32,20 +32,22 @@
 
   <body>
     <header>
-      <nav id="navigation">
-        <ul>
-          <li>
-            <button
-              id="rules"
-              class="icon-menu"
-              data-type="rules"
-              aria-label="Opens game rules"
-            >
-              <i class="fas fa-book-open"></i>
-            </button>
-          </li>
-        </ul>
-      </nav>
+      <div class="flex">
+        <nav id="navigation">
+          <ul>
+            <li>
+              <button
+                type="button"
+                class="icon-menu open-modal"
+                data-open="rules"
+                aria-label="Opens game rules"
+              >
+                <i class="fas fa-book-open"></i>
+              </button>
+            </li>
+          </ul>
+        </nav>
+      </div>
       <div>
         <h2 class="intro">
           <img
@@ -58,6 +60,53 @@
         <h1 class="heading">Rock, Paper, Scissors, Lizard, Spock!</h1>
       </div>
     </header>
+
+    <!-- Rules modal, hidden unless clicked on icon in nav -->
+    <div id="rules" class="modal">
+      <div class="modal-dialog">
+        <header class="modal-header">
+          <h2>How to win:</h2>
+          <button class="close-modal" aria-label="close modal" data-close>
+            <i class="fas fa-times"></i>
+          </button>
+        </header>
+        <section class="modal-content">
+          <ul id="how-to-play">
+            <li>
+              Rock<i class="fa-solid fa-hand-back-fist"></i> smashes Scissors<i
+                class="fa-solid fa-hand-scissors"
+              ></i>
+              and crushes Lizard<i class="fa-solid fa-hand-lizard"></i>
+            </li>
+            <li>
+              Paper<i class="fa-solid fa-hand"></i> covers Rock<i
+                class="fa-solid fa-hand-back-fist"
+              ></i>
+              and disproves Spock<i class="fa-solid fa-hand-spock"></i>
+            </li>
+            <li>
+              Scissors<i class="fa-solid fa-hand-scissors"></i> cut Paper<i
+                class="fa-solid fa-hand"
+              ></i>
+              and decapitates Lizard<i class="fa-solid fa-hand-lizard"></i>
+            </li>
+            <li>
+              Lizard<i class="fa-solid fa-hand-lizard"></i> eats Paper<i
+                class="fa-solid fa-hand"
+              ></i>
+              and bites Spock<i class="fa-solid fa-hand-spock"></i>
+            </li>
+            <li>
+              Spock<i class="fa-solid fa-hand-spock"></i> vaporizes Rock<i
+                class="fa-solid fa-hand-back-fist"
+              ></i>
+              and breaks Scissors<i class="fa-solid fa-hand-scissors"></i>
+            </li>
+          </ul>
+        </section>
+        <footer class="modal-footer">Sheldon Cooper</footer>
+      </div>
+    </div>
 
     <!-- Difficulty banner  -->
 
@@ -164,44 +213,7 @@
 
     <!-- Footer with rules -->
 
-    <footer>
-      <div id="rules">
-        <h2>How to win:</h2>
-        <ul id="how-to-play">
-          <li>
-            Rock<i class="fa-solid fa-hand-back-fist"></i> smashes Scissors<i
-              class="fa-solid fa-hand-scissors"
-            ></i>
-            and crushes Lizard<i class="fa-solid fa-hand-lizard"></i>
-          </li>
-          <li>
-            Paper<i class="fa-solid fa-hand"></i> covers Rock<i
-              class="fa-solid fa-hand-back-fist"
-            ></i>
-            and disproves Spock<i class="fa-solid fa-hand-spock"></i>
-          </li>
-          <li>
-            Scissors<i class="fa-solid fa-hand-scissors"></i> cut Paper<i
-              class="fa-solid fa-hand"
-            ></i>
-            and decapitates Lizard<i class="fa-solid fa-hand-lizard"></i>
-          </li>
-          <li>
-            Lizard<i class="fa-solid fa-hand-lizard"></i> eats Paper<i
-              class="fa-solid fa-hand"
-            ></i>
-            and bites Spock<i class="fa-solid fa-hand-spock"></i>
-          </li>
-          <li>
-            Spock<i class="fa-solid fa-hand-spock"></i> vaporizes Rock<i
-              class="fa-solid fa-hand-back-fist"
-            ></i>
-            and breaks Scissors<i class="fa-solid fa-hand-scissors"></i>
-          </li>
-        </ul>
-        <p>Sheldon Cooper</p>
-      </div>
-    </footer>
+    <footer></footer>
 
     <script src="./assets/js/script.js"></script>
     <script src="./assets/js/display.js"></script>

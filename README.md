@@ -264,6 +264,10 @@ The logo displayed at the top of the page is a free icon. It can be found on the
 - Button to re-start game on the winner banner.
 - Footer - Information on how to win the game.
 
+---
+
+Modal appearing when clicking on the rules icon in the navigation bar. The script is based on the tutorial of [envatotuts+](https://webdesign.tutsplus.com/tutorials/how-to-build-flexible-modal-dialogs-with-html-css-and-javascript--cms-33500)
+
 ### Features Left to Implement
 
 - Countdown run-out message.
