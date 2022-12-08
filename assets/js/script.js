@@ -126,80 +126,80 @@ function getOutcomeMessage(userSignChoice, computerSignChoice) {
       switch (computerSignChoice) {
         case SCISSORS:
           incrementPlayerScore();
-          return "Rock crushes scissors... You win this round!";
+          return "Rock crushes scissors... ✅ You WIN this round!";
         case LIZARD:
           incrementPlayerScore();
-          return "Rock crushes lizard... You win this round!";
+          return "Rock crushes lizard... ✅ You WIN this round!";
         case PAPER:
           incrementComputerScore();
-          return "Paper covers rock... You lose this round!";
+          return "Paper covers rock... ❌ You LOSE this round!";
         case SPOCK:
           incrementComputerScore();
-          return "Spock vaporizes rock... You lose this round!";
+          return "Spock vaporizes rock... ❌ You LOSE this round!";
       }
     /* falls through */
     case PAPER:
       switch (computerSignChoice) {
         case ROCK:
           incrementPlayerScore();
-          return "Paper covers rock... You win this round!";
+          return "Paper covers rock... ✅ You WIN this round!";
         case SPOCK:
           incrementPlayerScore();
-          return "Paper disproves Spock... You win this round!";
+          return "Paper disproves Spock... ✅ You WIN this round!";
         case SCISSORS:
           incrementComputerScore();
-          return "Scissors cut paper... You lose this round!";
+          return "Scissors cut paper... ❌ You LOSE this round!";
         case LIZARD:
           incrementComputerScore();
-          return "Lizard eats paper... You lose this round";
+          return "Lizard eats paper... ❌ You LOSE this round";
       }
     /* falls through */
     case SCISSORS:
       switch (computerSignChoice) {
         case PAPER:
           incrementPlayerScore();
-          return "Scissors cut paper... You win this round!";
+          return "Scissors cut paper... ✅ You WIN this round!";
         case LIZARD:
           incrementPlayerScore();
-          return "Scissors decapitates lizard... You win this round!";
+          return "Scissors decapitates lizard... ✅ You WIN this round!";
         case ROCK:
           incrementComputerScore();
-          return "Rock crushes scissors... You lose this round!";
+          return "Rock crushes scissors... ❌ You LOSE this round!";
         case SPOCK:
           incrementComputerScore();
-          return "Spock smashes scissors... You lose this round!";
+          return "Spock smashes scissors... ❌ You LOSE this round!";
       }
     /* falls through */
     case LIZARD:
       switch (computerSignChoice) {
         case ROCK:
           incrementComputerScore();
-          return "Rock crushes lizard... You lose this round!";
+          return "Rock crushes lizard... ❌ You LOSE this round!";
         case PAPER:
           incrementPlayerScore();
-          return "Lizard eats paper... You win this round!";
+          return "Lizard eats paper... ✅ You WIN this round!";
         case SCISSORS:
           incrementComputerScore();
-          return "Scissors decapitates lizard... You lose this round!";
+          return "Scissors decapitates lizard... ❌ You LOSE this round!";
         case SPOCK:
           incrementPlayerScore();
-          return "Lizard poisons Spock... You win this round!";
+          return "Lizard poisons Spock... ✅ You WIN this round!";
       }
     /* falls through */
     case SPOCK:
       switch (computerSignChoice) {
         case ROCK:
           incrementPlayerScore();
-          return "Spock vaporizes rock... You win this round!";
+          return "Spock vaporizes rock... ✅ You WIN this round!";
         case PAPER:
           incrementComputerScore();
-          return "Paper disproves Spock... You lose this round!";
+          return "Paper disproves Spock... ❌ You LOSE this round!";
         case SCISSORS:
           incrementPlayerScore();
-          return "Spock smashes scissors... You win this round!";
+          return "Spock smashes scissors... ✅ You WIN this round!";
         case LIZARD:
           incrementComputerScore();
-          return "Lizard poisons Spock... You lose this round!";
+          return "Lizard poisons Spock... ❌ You LOSE this round!";
       }
   }
 }
@@ -289,6 +289,8 @@ function countdownStart() {
     if (timeRemaining < 0) {
       clearInterval(countdownId);
       incrementComputerScore();
+      outcomeMessageElement.innerHTML =
+        "You ran out of time, ❌ you LOSE this round!";
       return;
     }
     timerElement.innerHTML = timeRemaining;
