@@ -26,6 +26,31 @@ body {
     height: auto;
 }
 
+#navigation {
+    position: absolute;
+    right: 1.6rem;
+    top: 0;
+    list-style-type: none;
+}
+
+#navigation li {
+    display: inline;
+}
+
+.icon-menu{
+    font-size: 2.5rem;
+    padding: 0.5rem;
+    color: whitesmoke;
+    border: none;
+    background: none;
+    box-shadow: none;
+    width: auto;
+}
+
+.icon-menu:hover {
+    color: #34568B;
+}
+
 /* Game layout */
 
 .game-area {
@@ -187,6 +212,13 @@ body {
     margin: 0 12px;
 }
 
+.close-container {
+    position: absolute;
+    right: 1rem;
+    top: 0;
+    padding: 0.3rem !important;
+}
+
 .scoreboard-area {
     display: flex;
     justify-content: center;
@@ -213,7 +245,7 @@ body {
     text-align: center;
     color: #34558bab;
     margin: 15% auto; 
-    padding: 3rem;
+    padding: 3rem !important;
     border: 3px solid black;
     width: 75%; 
 }
@@ -225,6 +257,8 @@ body {
     top: 0.625rem;
     font-size: 2rem;
     font-weight: bold;
+    border: none;
+    background: none;
 }
 
 #close:hover {
@@ -235,8 +269,8 @@ body {
 /* footer */
 
 footer {
-    background-color: #34558bab;
-    color: white;
+    background-color: rgb(245, 231, 128);
+    color: #34568B;
     clear: both;
 }
 
@@ -263,10 +297,13 @@ footer {
 /* Media queries */
 
 @media (max-width: 414px) {
+    .icon-menu{
+        font-size: 1.5rem;
+    }
+    
     .logo {
         max-width: 50px;
         height: auto;
-        float: left;
     }
     
     .heading {
@@ -277,13 +314,18 @@ footer {
         font-size: .9rem;
         float: right;
     }
+
+    #navigation .icon-menu {
+        margin: 0;
+        padding: 1rem;
+    }
     
     .sign-choice {
         width: 100%;
     }
 
     .choice-btn {
-        font-size: 1.5rem;
+        font-size: 1rem;
         width: 50px;
         padding: 10px 20px;
     }
@@ -308,6 +350,10 @@ footer {
 
     #messages {
         font-size: 0.7rem;
+    }
+
+    .close-window {
+        right: 0.5rem;
     }
 
     footer {

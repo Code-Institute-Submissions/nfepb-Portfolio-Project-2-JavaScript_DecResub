@@ -31,30 +31,57 @@
   </head>
 
   <body>
-    <h2 class="intro">
-      <img
-        class="logo"
-        src="assets/images/study-break.png"
-        alt="Study Break Room logo"
-      /><br />
-      Studying is hard. Let us take a break and play: <br />
-    </h2>
-    <h1 class="heading">Rock, Paper, Scissors, Lizard, Spock!</h1>
+    <header>
+      <nav id="navigation">
+        <ul>
+          <li>
+            <button
+              id="rules"
+              class="icon-menu"
+              data-type="rules"
+              aria-label="Opens game rules"
+            >
+              <i class="fas fa-book-open"></i>
+            </button>
+          </li>
+        </ul>
+      </nav>
+      <div>
+        <h2 class="intro">
+          <img
+            class="logo"
+            src="assets/images/study-break.png"
+            alt="Study Break Room logo"
+          /><br />
+          Studying is hard. Let us take a break and play: <br />
+        </h2>
+        <h1 class="heading">Rock, Paper, Scissors, Lizard, Spock!</h1>
+      </div>
+    </header>
 
     <!-- Difficulty banner  -->
 
     <div class="game-setting">
       <p>Welcome stranger. Can you win 5 times before the computer can?</p>
       <p>What is your name?</p>
-      <input type="text" placeholder="Batman" id="player-name" />
-      <p>What difficulty do you wish to play in?</p>
-      <input type="radio" name="difficulty" value="easy" id="easy" checked />
-      <label for="easy">Easy</label>
-      <input type="radio" name="difficulty" value="medium" id="medium" />
-      <label for="medium">Medium</label>
-      <input type="radio" name="difficulty" value="hard" id="hard" />
-      <label for="hard">Hard</label>
-      <button type="submit" id="launch-game">I'm ready!</button>
+      <form>
+        <label>What is your name?</label>
+        <input
+          type="text"
+          placeholder="Charlie"
+          id="player-name"
+          min-length="3"
+          required
+        />
+        <label>What difficulty do you wish to play in?</label>
+        <input type="radio" name="difficulty" value="easy" id="easy" checked />
+        <label for="easy">Easy</label>
+        <input type="radio" name="difficulty" value="medium" id="medium" />
+        <label for="medium">Medium</label>
+        <input type="radio" name="difficulty" value="hard" id="hard" />
+        <label for="hard">Hard</label>
+        <button type="submit" id="launch-game">I'm ready!</button>
+      </form>
     </div>
 
     <!-- Game Area with player selector div -->
@@ -113,11 +140,23 @@
       </div>
     </section>
 
-    <!-- Winner display banner -->
+    <!-- Round Result display banner -->
 
-    <div class="banner-display hidden">
+    <!-- <div class="banner-display hidden" id="round-outcome">
       <div class="banner-content">
-        <span id="close"><i class="fas fa-times"></i></span>
+        <button id="next"><i class="fas fa-times"></i></button>
+        <h2 class="banner-header">Who is the winner</h2>
+        <p class="banner-result">Final scoreboard results</p>
+      </div>
+    </div> -->
+
+    <!-- Winner of round display banner -->
+
+    <div id="game-outcome" class="banner-display hidden">
+      <div class="banner-content">
+        <button id="close" aria-label="Close settings menu">
+          <i class="fas fa-times"></i>
+        </button>
         <h2 class="banner-header">Who is the winner</h2>
         <p class="banner-result">Final scoreboard results</p>
       </div>
@@ -126,34 +165,45 @@
     <!-- Footer with rules -->
 
     <footer>
-      <h2>How to win:</h2>
-      <p>
-        <i
-          ><span class="scissors-ftr">Scissors</span> cuts
-          <span class="paper-ftr">paper</span>,
-          <span class="paper-ftr">paper</span> covers
-          <span class="rock-ftr">rock</span>,
-          <span class="rock-ftr">rock</span> crushes
-          <span class="lizard-ftr">lizard</span>,
-          <span class="lizard-ftr">lizard</span> poisons
-          <span class="spock-ftr">Spock</span>,
-          <span class="spock-ftr">Spock</span> smashes
-          <span class="scissors-ftr">scissors</span>,
-          <span class="scissors-ftr">scissors</span> decapitates
-          <span class="lizard-ftr">lizard</span>,
-          <span class="lizard-ftr">lizard</span> eats
-          <span class="paper-ftr">paper</span>,
-          <span class="paper-ftr">paper</span> disproves
-          <span class="spock-ftr">Spock</span>,
-          <span class="spock-ftr">Spock</span> vaporizes
-          <span class="rock-ftr">rock</span>, and as it always has,
-          <span class="rock-ftr">rock</span> crushes
-          <span class="scissors-ftr">scissors</span>"</i
-        >
-      </p>
-      <p>Sheldon Cooper</p>
+      <div id="rules">
+        <h2>How to win:</h2>
+        <ul id="how-to-play">
+          <li>
+            Rock<i class="fa-solid fa-hand-back-fist"></i> smashes Scissors<i
+              class="fa-solid fa-hand-scissors"
+            ></i>
+            and crushes Lizard<i class="fa-solid fa-hand-lizard"></i>
+          </li>
+          <li>
+            Paper<i class="fa-solid fa-hand"></i> covers Rock<i
+              class="fa-solid fa-hand-back-fist"
+            ></i>
+            and disproves Spock<i class="fa-solid fa-hand-spock"></i>
+          </li>
+          <li>
+            Scissors<i class="fa-solid fa-hand-scissors"></i> cut Paper<i
+              class="fa-solid fa-hand"
+            ></i>
+            and decapitates Lizard<i class="fa-solid fa-hand-lizard"></i>
+          </li>
+          <li>
+            Lizard<i class="fa-solid fa-hand-lizard"></i> eats Paper<i
+              class="fa-solid fa-hand"
+            ></i>
+            and bites Spock<i class="fa-solid fa-hand-spock"></i>
+          </li>
+          <li>
+            Spock<i class="fa-solid fa-hand-spock"></i> vaporizes Rock<i
+              class="fa-solid fa-hand-back-fist"
+            ></i>
+            and breaks Scissors<i class="fa-solid fa-hand-scissors"></i>
+          </li>
+        </ul>
+        <p>Sheldon Cooper</p>
+      </div>
     </footer>
 
     <script src="./assets/js/script.js"></script>
+    <script src="./assets/js/display.js"></script>
   </body>
 </html>

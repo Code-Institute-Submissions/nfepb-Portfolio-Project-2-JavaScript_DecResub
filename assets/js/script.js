@@ -53,6 +53,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const choiceButtons = document.querySelectorAll(".choice-btn");
 
   startGameButton.addEventListener("click", () => {
+    // document.getElementById("launch-game").submit();
     gameArea.classList.remove(hiddenClassName);
     scoreboardArea.classList.remove(hiddenClassName);
     gameSettingArea.classList.add(hiddenClassName);
@@ -62,7 +63,6 @@ document.addEventListener("DOMContentLoaded", function () {
       'input[name="difficulty"]:checked'
     );
     difficultyLevel = checkRadioBtnElement.value;
-    console.log(difficultyLevel);
     countdownStart();
   });
 
@@ -110,6 +110,8 @@ function displayComputerChoice(computerChoice) {
 
 function displayOutcomeMessage(messageToDisplay) {
   outcomeMessageElement.innerHTML = messageToDisplay;
+  // Message prompt stopping timer & display outcome message
+  alert(messageToDisplay);
 }
 
 /** function comparing player choice and computer choice */
