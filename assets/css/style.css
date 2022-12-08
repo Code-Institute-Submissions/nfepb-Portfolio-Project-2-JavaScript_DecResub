@@ -148,6 +148,21 @@ button {
 
 /* Buttons */
 
+#launch-game {
+    background-color: aliceblue;
+    padding: 12px 24px;
+    margin-top: 15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    border-radius: 12px;
+}
+
+#launch-game:hover {
+    background-color: #34568B;
+    color: aliceblue;
+}
+
 .sign-choice {
     display: flex;
     flex-wrap: wrap;
@@ -390,7 +405,7 @@ footer {
     .logo {
         max-width: 50px;
         height: auto;
-        padding-top: 25px;
+        padding-top: 30px;
     }
     
     .heading {
