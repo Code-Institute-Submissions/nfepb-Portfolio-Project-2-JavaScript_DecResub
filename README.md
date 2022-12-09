@@ -343,17 +343,18 @@ The performance was performing lower due to style elements needed to be download
 
 #### **W3 HTML Validator**
 
-The html file was tested using the W3 HTML validator showing 9 errors.
+The html file was tested using the W3 HTML validator showing 0 errors.
 
-[W3 HTML Validator](assets/images/html-validator-errors.png)
-
-- Due to the time left, no solution could be found prior to submitting the project.
+[W3 HTML Validator](assets/images/W3C-validation.png)
 
 #### **W3c CSS Validator**
 
-The css file was tested using the W3c CSS validator showing no errors.
+The css file was tested using the W3C CSS validator showing 9 errors.
 
-[W3C CSS Validator](assets/images/w3c-css-validator.png)
+[W3C CSS Validator](assets/images/w3c-css-validation.png)
+
+- 7 errors are known issues due to vendor extensions from Mozilla ([StackOverflow](https://stackoverflow.com/questions/8765673/moz-box-shadow-0-0-10px-rgba0-0-0-0-3-not-passing-css3-validator)) and Internet Explorer ([Splunktool](https://splunktool.com/css-21-errors-not-a-known-property-name)).
+- 2 errors from the import of the favicons stylesheet due to deprecated `clip` property ([StackOverflow](https://stackoverflow.com/questions/23849377/html-5-favicon-support)).
 
 #### **JSHint**
 
