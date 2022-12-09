@@ -253,16 +253,30 @@ The logo displayed at the top of the page is a free icon. It can be found on the
 
 ### Existing Features
 
-- Heading and Sub-heading.
-- User input banner.
-- Button to launch the game.
-- Game area with user input.
-- Countdown timer based on difficulty.
-- Outcome message.
-- Win/Lose Scores.
-- Banner announcing the winner.
-- Button to re-start game on the winner banner.
-- Footer - Information on how to win the game.
+- Heading and Sub-heading so the user knows exactly what this website is for. The icon in the navigation bar has a hover effect to allow the user to know when they are about to click on the rules icon.
+  ![Navigation and title with logo](assets/images/features/nav-with-intro.png)
+  ![Page title Roack, Paper, Scissors, Lizard Spock](assets/images/features/title.png)
+
+- A banner image appears when clicking on the icon in the navigation of the page to displays the rules, obscuring the rest of the page. This banner appears with a fade in, and can be removed by clicking on the close it or pressing the `Esc` key
+  ![rules banner obscuring the rest of the page](assets/images/features/rules-banner.png)
+
+- User input banner that allow the user to provide their username and to select the difficulty level they want to play in. Once ready, the user launches the game through the button at the end of the form.
+  ![Input form on page open](assets/images/features/welcome-form.png)
+
+- The user has to input a name in order to advance and launch the game. When the user seeks to advance without input, a validation message appears to guide the user.
+  ![User feedback empty username submission](assets/images/features/input-validation-welcome-form.png)
+
+- The game area displays 5 buttons to allow the user to select the sign they want to try to win the round. When a sign is selected, it is circle through a thick red border and the name of the buttons is slightly pushed down. A countdown starts at the beginning of each round. When it reaches 0, the computer wins the round. The time in the countdown is directly linked to the difficulty level. Once the user is happy with their choice, they can submit the sign choice through the submission button. The computer choice is randomly selected. Based on the computer sign choice, an outcome message is both displayed on the game area, and as on a banner (see below).
+  ![game area](assets/images/features/game-area.png)
+
+- In order to make it obvious for the user what the round outcome it, a banner is displayed repeating the text in the div from the game area. While this banned is displayed, the game and countdown are stopped.
+  ![end of round banner with outcome message](assets/images/features/end-round-result-message.png)
+
+- A scoreboard is displayed below the game area. The username provided by the user is displayed, alongside with their score. The computer and its score is displayed next to it.
+  ![scoreboard](assets/images/features/scoreboard.png)
+
+- End of game message with the close button restting the game on closing the banner.
+  ![end of round banner with close button](assets/images/features/end-game-banner.png)
 
 ---
 
@@ -270,8 +284,9 @@ Modal appearing when clicking on the rules icon in the navigation bar. The scrip
 
 ### Features Left to Implement
 
-- Countdown run-out message.
 - Outcome message when the player wants to play the first round without initially selecting a sign.
+- While the round outcome banner is displayed, de-activate "Enter" pressdown to continue the game and submit the sign choice for the next round.
+- Stop all inputs once the game reaches 5 wins or losses and only allow reset.
 
 ---
 
@@ -366,6 +381,7 @@ The Javascript file was validated using JSHint, with the following result. The N
 - JSHint warned of an error in the Switch statements. Breaks were omitted by design. The solution provided to disregard this error was provided on [Stackoverflow](https://stackoverflow.com/questions/22398251/jshint-throws-aexpected-a-break-statement-before-case/22398337) by adding a comment "/_ falls through _/" after each case block for the user selected sign.
 - No resolution found: improve site performance.
 - Display an outcome message when the timer is running out explaining the computer score incremented.
+- Error message in the console `Error with Permissions-Policy header: Origin trial controlled feature not enabled: 'interest-cohort'.`. This error message is caused by GitHub hosted pages. GitHub disables FLoC, which is Google's 3rd party cookie alternative. [Source StackOverflow](https://stackoverflow.com/questions/69619035/error-with-permissions-policy-header-unrecognized-feature-interest-cohort)
 
 ---
 
