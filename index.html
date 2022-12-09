@@ -113,7 +113,7 @@
     <div class="game-setting">
       <p>Welcome stranger. Can you win 5 times before the computer can?</p>
       <p>What is your name?</p>
-      <form>
+      <form id="entry-form">
         <label>What is your name?</label>
         <input
           type="text"
@@ -189,7 +189,7 @@
       </div>
     </section>
 
-    <!-- Winner of round display banner -->
+    <!-- Game winner display banner -->
 
     <div id="game-outcome" class="banner-display hidden">
       <div class="banner-content">
@@ -198,6 +198,14 @@
         </button>
         <h2 class="banner-header">Who is the winner</h2>
         <p class="banner-result">Final scoreboard results</p>
+      </div>
+    </div>
+
+    <!-- Round winner banner -->
+    <div id="round-outcome" class="banner-display hidden">
+      <div class="banner-content">
+        <p class="banner-result">Final scoreboard results</p>
+        <button id="continue">Continue</button>
       </div>
     </div>
 

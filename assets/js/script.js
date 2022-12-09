@@ -10,10 +10,13 @@ const SCISSORS = signChoices[2];
 const LIZARD = signChoices[3];
 const SPOCK = signChoices[4];
 
+const SCORE_TO_WIN = 5;
+
 let playerName = "";
 let playerSignChoice = "";
 let difficultyLevel = "easy";
 let countdownId;
+let countdownPaused = false;
 
 const hiddenClassName = "hidden";
 
@@ -25,15 +28,28 @@ const gameSettingArea = document.getElementsByClassName("game-setting")[0];
 const playerNameInput = document.getElementById("player-name");
 const timerElement = document.getElementById("timer");
 const outcomeMessageElement = document.getElementById("outcome-message");
+const entryForm = document.getElementById("entry-form");
+const choiceButtons = document.querySelectorAll(".choice-btn");
+const closeButton = document.getElementById("close");
+const continueButton = document.getElementById("continue");
 
 /* Default value for the score */
 
 let playerScore = 0;
 let computerScore = 0;
 
-const bannerDisplay = document.getElementsByClassName("banner-display")[0];
-const bannerHeader = document.getElementsByClassName("banner-header")[0];
-const bannerParagraph = document.getElementsByClassName("banner-result")[0];
+const gameOutcomeBannerDisplay = document.querySelector("#game-outcome");
+const gameOutcomeBannerHeader = document.querySelector(
+  "#game-outcome > div > h2"
+);
+const gameOutcomeBannerParagraph = document.querySelector(
+  "#game-outcome > div > p"
+);
+
+const roundOutcomeBannerDisplay = document.querySelector("#round-outcome");
+const roundOutcomeBannerParagraph = document.querySelector(
+  "#round-outcome > div > p"
+);
 
 // Difficulty level
 
@@ -49,11 +65,8 @@ let timeRemaining = 0;
 // Get the button elements and add event listeners to them
 
 document.addEventListener("DOMContentLoaded", function () {
-  const startGameButton = document.getElementById("launch-game");
-  const choiceButtons = document.querySelectorAll(".choice-btn");
-
-  startGameButton.addEventListener("click", () => {
-    // document.getElementById("launch-game").submit();
+  entryForm.addEventListener("submit", (event) => {
+    event.preventDefault();
     gameArea.classList.remove(hiddenClassName);
     scoreboardArea.classList.remove(hiddenClassName);
     gameSettingArea.classList.add(hiddenClassName);
@@ -69,11 +82,14 @@ document.addEventListener("DOMContentLoaded", function () {
   choiceButtons.forEach(function (choiceButton) {
     choiceButton.addEventListener("click", function (event) {
       playerSignChoice = event.currentTarget.id;
-      choiceButtons.forEach(function (choiceButton) {
-        choiceButton.classList.remove("selected-choice-btn");
-      });
+      clearSelectedChoiceButton();
       event.currentTarget.classList.add("selected-choice-btn");
     });
+  });
+
+  continueButton.addEventListener("click", function () {
+    hideRoundOutcomeBanner();
+    countdownPaused = false;
   });
 
   /** Launch the game on "sign choice" button click and calls on function to calculate outcome */
@@ -87,12 +103,15 @@ document.addEventListener("DOMContentLoaded", function () {
     displayOutcomeMessage(outcomeMessage);
     countdownStart();
   });
-  const closeButton = document.getElementById("close");
   closeButton.addEventListener("click", function () {
     resetGame();
     closeBanner();
   });
 });
+
+function hideRoundOutcomeBanner() {
+  roundOutcomeBannerDisplay.classList.add("hidden");
+}
 
 /** Function defining randomly the computer sign */
 
@@ -109,9 +128,12 @@ function displayComputerChoice(computerChoice) {
 }
 
 function displayOutcomeMessage(messageToDisplay) {
-  outcomeMessageElement.innerHTML = messageToDisplay;
-  // Message prompt stopping timer & display outcome message
-  alert(messageToDisplay);
+  const winnerBannerShown =
+    !gameOutcomeBannerDisplay.classList.contains("hidden");
+  if (winnerBannerShown) return;
+  roundOutcomeBannerDisplay.classList.remove("hidden");
+  roundOutcomeBannerParagraph.textContent = messageToDisplay;
+  countdownPaused = true;
 }
 
 /** function comparing player choice and computer choice */
@@ -220,21 +242,30 @@ function displayComputerScore() {
   document.getElementById("computer-score").innerText = computerScore;
 }
 
-/** Check if player/computer score is equal to 5.
+/** Check if player/computer score is equal to SCORE_TO_WIN.
  * Displays the winner block.
  * Header will display if the player has won or lost the game with the final scores.
  */
 
 function showWinner() {
-  if (playerScore >= 5) {
-    bannerDisplay.classList.remove("hidden");
-    bannerHeader.textContent = "You Win The Game!";
-    bannerParagraph.textContent = `You: ${playerScore} > Computer: ${computerScore}`;
-  } else if (computerScore >= 5) {
-    bannerDisplay.classList.remove("hidden");
-    bannerHeader.textContent = "You Lose The Game!";
-    bannerParagraph.textContent = `Computer: ${computerScore} > You: ${playerScore}`;
+  if (playerScore >= SCORE_TO_WIN) {
+    showTextInBanner(
+      "You Win The Game!",
+      `You: ${playerScore} > Computer: ${computerScore}`
+    );
+  } else if (computerScore >= SCORE_TO_WIN) {
+    showTextInBanner(
+      "You Lose The Game!",
+      `Computer: ${computerScore} > You: ${playerScore}`
+    );
   }
+}
+
+function showTextInBanner(headerContent, bodyContent) {
+  gameOutcomeBannerDisplay.classList.remove("hidden");
+  gameOutcomeBannerHeader.textContent = headerContent;
+  gameOutcomeBannerParagraph.textContent = bodyContent;
+  countdownPaused = true;
 }
 
 function incrementPlayerScore() {
@@ -250,7 +281,8 @@ function incrementComputerScore() {
 }
 
 function closeBanner() {
-  bannerDisplay.classList.add("hidden");
+  gameOutcomeBannerDisplay.classList.add("hidden");
+  countdownPaused = false;
 }
 
 /**
@@ -262,8 +294,14 @@ function resetGame() {
   computerScore = 0;
   displayPlayerScore();
   displayComputerScore();
-  displayOutcomeMessage("Ready for the next round?");
+  clearSelectedChoiceButton();
   document.getElementById("computer-sign").className = "fas fa-question";
+}
+
+function clearSelectedChoiceButton() {
+  choiceButtons.forEach(function (choiceButton) {
+    choiceButton.classList.remove("selected-choice-btn");
+  });
 }
 
 // Countdown Timer function to start from the first click on "select sign" button
@@ -285,6 +323,7 @@ function countdownStart() {
   timerElement.innerHTML = timeRemaining;
   clearInterval(countdownId);
   countdownId = setInterval(() => {
+    if (countdownPaused) return;
     timeRemaining--;
     if (timeRemaining < 0) {
       clearInterval(countdownId);
