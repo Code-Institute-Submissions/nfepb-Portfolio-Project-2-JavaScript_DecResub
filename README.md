@@ -360,7 +360,8 @@ The css file was tested using the W3C CSS validator showing 9 errors.
 
 The Javascript file was validated using JSHint, with the following result. The New JavaScript features (ES6) option was ticked in the Configure menu.
 
-[JSHint test result](assets/images/jshint.png)
+[JSHint test result script.js](assets/images/script-js-jshint.png)
+[JSHint test result display.js](assets/images/display-js-jshint.png)
 
 #### **Testing game for achievement of user goals**
 
@@ -383,6 +384,7 @@ The Javascript file was validated using JSHint, with the following result. The N
 - No resolution found: improve site performance.
 - Display an outcome message when the timer is running out explaining the computer score incremented.
 - Error message in the console `Error with Permissions-Policy header: Origin trial controlled feature not enabled: 'interest-cohort'.`. This error message is caused by GitHub hosted pages. GitHub disables FLoC, which is Google's 3rd party cookie alternative. [Source StackOverflow](https://stackoverflow.com/questions/69619035/error-with-permissions-policy-header-unrecognized-feature-interest-cohort)
+- Have a modal appear to display the rules with more contrast. [Webdesign Tutplus code](https://webdesign.tutsplus.com/tutorials/how-to-build-flexible-modal-dialogs-with-html-css-and-javascript--cms-33500)
 
 ---
 
